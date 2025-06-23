@@ -16,7 +16,7 @@ export type Product = {
   images: string[];
 };
 
-export type Review = {
+export type Review = {  
   author: string;
   image: string;
   content: string;
