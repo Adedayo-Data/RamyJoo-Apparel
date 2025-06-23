@@ -45,3 +45,23 @@ export async function getProductsFromBackend() {
     color: item.colorList
   }));
 }
+
+export async function getProductById(id: string): Promise<Product | null> {
+  try {
+    const res = await fetch(`http://localhost:8080/api/products/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      console.error("Failed to fetch product:", res.statusText);
+      return null;
+    }
+
+    const data = await res.json();
+    return data as Product;
+  } catch (error) {
+    console.error("Error fetching product by ID:", error);
+    return null;
+  }
+}
+
