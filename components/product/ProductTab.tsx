@@ -59,7 +59,12 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
                     />
                     <div>
                       <p className="whitespace-nowrap">{review.author}</p>
-                      <small>{review.date.toDateString()}</small>
+                      <small>{new Date(review.date).toLocaleDateString("en-NG", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}</small>
+
                     </div>
                   </div>
                 </div>

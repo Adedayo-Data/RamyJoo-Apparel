@@ -32,7 +32,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
       {/* Rating and Review */}
       <RatingReview
         rating={product?.rating || 0}
-        review={product?.reviews.length || 0}
+        review={Array.isArray(product?.reviews) ? product.reviews.length : 0}
       />
       {/* Product Description */}
       <ProductDescription description={product?.description as string} />
@@ -85,5 +85,4 @@ const ProductDetails = ({ product }: { product: Product }) => {
     </div>
   );
 };
-
 export default ProductDetails;

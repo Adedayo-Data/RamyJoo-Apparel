@@ -1,48 +1,118 @@
+// app/product/[productId]/page.tsx or wherever this file is located
 
 import ProductGallery from "@/components/product/ProductGallery";
-import { productsData } from "@/data/products/productsData";
 import React from "react";
 import RelatedProducts from "@/components/products/RelatedProducts";
 import BreadcrumbComponent from "@/components/others/Breadcrumb";
 import ProductDetails from "@/components/product/ProductDetails";
 
-// Define the props interface for the component
+// interface for the dynamic route
 interface ProductIdPageProps {
   params: { productId: string };
 }
 
-// Define the main component
-const ProductIdPage = ({ params }: ProductIdPageProps) => {
-  // TODO: fetch product data with the productId
+const ProductIdPage = async ({ params }: ProductIdPageProps) => {
+  const res = await fetch(`http://localhost:8080/api/products/${params.productId}`, {
+    cache: "no-store", // you can remove this in production
+  });
 
-  // Find the product with the specified ID from the products data
-  const product = productsData.find(
-    (product) => product.id === Number(params.productId)
+  if (!res.ok) {
+    throw new Error("Failed to fetch product");
+  }
+
+  const product = await res.json();
+  console.log("product output: ", product);
+
+  const relatedRes = await fetch("http://localhost:8080/api/products/"); // You can filter related in frontend or implement filtering on backend
+  const allProducts = await relatedRes.json();
+
+
+
+  const relatedProducts = allProducts.filter(
+    (prod: any) => prod.category === product.category && prod.id !== product.id
   );
 
-  // Filter related products based on the category of the current product
-  const relatedProducts = productsData.filter(
-    (prod) => prod.category === product?.category
-  );
-
-  // Return the JSX structure of the component
   return (
     <div className="max-w-screen-xl mx-auto p-4 md:p-8 flex flex-col items-start gap-2 min-h-screen">
-      {/* Breadcrumb Component */}
+      {/* Breadcrumb */}
       <div className="my-2">
-        <BreadcrumbComponent links={["/shop"]} pageText={product?.name!} />
+        <BreadcrumbComponent links={["/shop"]} pageText={product.name} />
       </div>
+
+      {/* Product Gallery & Details */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-        {/* Product Gallery */}
-        <ProductGallery isInModal={false} images={product?.images!} />
-        {/* product details */}
-        <ProductDetails product={product!}/>
+        <ProductGallery isInModal={false} images={product.images ?? []} />
+        <ProductDetails product={product} />
       </div>
+
       {/* Related Products */}
       <RelatedProducts products={relatedProducts} />
     </div>
   );
 };
 
-// Export the component as default
 export default ProductIdPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import ProductGallery from "@/components/product/ProductGallery";
+// import React from "react";
+// import RelatedProducts from "@/components/products/RelatedProducts";
+// import BreadcrumbComponent from "@/components/others/Breadcrumb";
+// import ProductDetails from "@/components/product/ProductDetails";
+// import { getProductById } from "@/lib/api-adapter";
+// import { Product } from "@/types";
+
+// // Define the props interface for the component
+// interface ProductIdPageProps {
+//   params: { productId: string };
+// }
+
+// const ProductIdPage = async ({ params }: ProductIdPageProps) => {
+//   const product: Product | null = await getProductById(params.productId);
+
+//   if (!product) {
+//     return <p className="text-red-600 p-8">Product not found.</p>;
+//   }
+
+//   // TODO: Replace this with a real related products API
+//   const relatedProducts: Product[] = []; // or use same category mock fallback
+
+//   return (
+//     <div className="max-w-screen-xl mx-auto p-4 md:p-8 flex flex-col items-start gap-2 min-h-screen">
+//       <div className="my-2">
+//         <BreadcrumbComponent links={["/shop"]} pageText={product.name} />
+//       </div>
+
+//       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+//         <ProductGallery isInModal={false} images={product.images} />
+//         <ProductDetails product={product} />
+//       </div>
+
+//       <RelatedProducts products={relatedProducts} />
+//     </div>
+//   );
+// };
+
+// export default ProductIdPage;
