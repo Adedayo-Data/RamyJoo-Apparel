@@ -3,7 +3,7 @@ export const bannerData = [
     {
         title:'Dominate the Competition with the Legion X7',
         description:'Unleash ultimate gaming power with the Legion X7. Featuring a top-of-the-line processor, powerful graphics card, and a high-refresh-rate display.',
-        images:['/images/banner/gaming-laptop.png'],
+        images:['/images/banner/One.png'],
         button:'Shop Gaming Laptops',
         discountText:'Buy now Get 10% off',
         link: `shop?category=Computers`
