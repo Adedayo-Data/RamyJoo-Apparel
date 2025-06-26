@@ -5,6 +5,7 @@ import React from "react";
 import RelatedProducts from "@/components/products/RelatedProducts";
 import BreadcrumbComponent from "@/components/others/Breadcrumb";
 import ProductDetails from "@/components/product/ProductDetails";
+import { API_URL } from "@/config/api";
 
 // interface for the dynamic route
 interface ProductIdPageProps {
@@ -12,7 +13,8 @@ interface ProductIdPageProps {
 }
 
 const ProductIdPage = async ({ params }: ProductIdPageProps) => {
-  const res = await fetch(`http://localhost:8080/api/products/${params.productId}`, {
+  console.log(`${API_URL}/api/products/${params.productId}`);
+  const res = await fetch(`${API_URL}/api/products/${params.productId}`, {
     cache: "no-store", // you can remove this in production
   });
 
@@ -23,7 +25,7 @@ const ProductIdPage = async ({ params }: ProductIdPageProps) => {
   const product = await res.json();
   console.log("product output: ", product);
 
-  const relatedRes = await fetch("http://localhost:8080/api/products/"); // You can filter related in frontend or implement filtering on backend
+  const relatedRes = await fetch(`${API_URL}/api/products/`); // You can filter related in frontend or implement filtering on backend
   const allProducts = await relatedRes.json();
 
 

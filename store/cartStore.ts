@@ -2,12 +2,13 @@
 import { CartItem } from "@/types";
 import { create } from "zustand";
 import { CART_API } from "./CartConfig";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 interface CartState {
   cartItems: CartItem[];
   couponCode: string | null;
-  addToCart: (newItem: CartItem) => Promise<void>;
+  addToCart: (newItem: CartItem) => Promise<boolean>;
   removeFromCart: (itemId: number) => Promise<void>;
   updateQuantity: (itemId: number, newQuantity: number) => Promise<void>;
   clearCart: () => Promise<void>;
@@ -75,10 +76,7 @@ const useCartStore = create<CartState>((set, get) => {
   const token = localStorage.getItem("token");
   if (!token) {
     toast.warning("Please login to add items to cart");
-    setTimeout(() => {
-      window.location.href = "/sign-in";
-    }, 2000);
-    return;
+    return false; // 🔁 return a signal to redirect
   }
 
   try {
@@ -94,9 +92,8 @@ const useCartStore = create<CartState>((set, get) => {
 
     if (!res.ok) throw new Error("Failed to add item to cart");
 
-    const rawData = await res.json(); // ← Array of raw cart items from backend
+    const rawData = await res.json();
 
-    // ✅ Transform data
     const cartItems: CartItem[] = rawData.map((item: any) => ({
       id: item.id,
       quantity: item.quantity,
@@ -121,10 +118,13 @@ const useCartStore = create<CartState>((set, get) => {
 
     set({ cartItems });
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
+    return true; // ✅ all good
   } catch (err) {
     console.error("Add to cart error:", err);
+    return false;
   }
 },
+
 
 
     removeFromCart: async (id) => {

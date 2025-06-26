@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { FaGoogle } from "react-icons/fa6";
 import { Button } from "../ui/button";
+import { API_URL } from "@/config/api";
 
 // Define Zod schema for form validation
 const signUpSchema = z
@@ -45,7 +46,7 @@ const SignUpForm = () => {
 
   const onSubmit = async (data: SignUpFormData) => {
   try {
-    const res = await fetch("http://localhost:8080/auth/signup", {
+    const res = await fetch(`${API_URL}/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

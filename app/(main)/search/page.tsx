@@ -1,56 +1,82 @@
 import BreadcrumbComponent from "@/components/others/Breadcrumb";
 import SingleProductCartView from "@/components/product/SingleProductCartView";
 import SingleProductListView from "@/components/product/SingleProductListView";
-import { productsData } from "@/data/products/productsData";
+import { Product } from "@/types";
 import Link from "next/link";
 
-const SearchComponent = ({
+const getProductsFromBackend = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
+    cache: "no-store",
+  });
+
+  const data = await res.json();
+  return data;
+};
+
+export default async function SearchPage({
   searchParams,
 }: {
   searchParams: { query: string };
-}) => {
+}) {
+  const rawProducts = await getProductsFromBackend();
 
-  // Filter the products based on the search query
-  const foundProducts = productsData.filter((product) =>
-    product.name.toLowerCase().includes(searchParams.query.toLowerCase())
+  // ✅ Normalize and assert each product is complete
+  const products: Product[] = rawProducts.map((product: any) => ({
+    id: product.id,
+    productName: product.name ?? "", // make sure it's always string
+    category: product.category ?? "",
+    description: product.description ?? "",
+    aboutItem: product.aboutItem ?? [],
+    price: product.price ?? 0,
+    discount: product.discount ?? 0,
+    rating: product.rating ?? 0,
+    stockItems: product.stockItems ?? 0,
+    reviews: product.reviews ?? [],
+    brand: product.brand ?? "",
+    color: product.color ?? [],
+    images: product.images ?? [],
+  }));
+
+  const foundProducts = products.filter((product) =>
+    product.productName.toLowerCase().includes(searchParams.query.toLowerCase())
   );
 
-
   if (foundProducts.length === 0) {
-    return <div className="text-xl font-medium flex flex-col items-center justify-center h-screen w-full">
-      <p className="p-4 text-center" >Sorry, no search result found for your query !</p>
-      <Link className="p-2 underline text-muted-foreground" href={'/'}>Home</Link>
-    </div>;
+    return (
+      <div className="text-xl font-medium flex flex-col items-center justify-center h-screen w-full">
+        <p className="p-4 text-center">
+          Sorry, no search result found for your query!
+        </p>
+        <Link className="p-2 underline text-muted-foreground" href={"/"}>
+          Home
+        </Link>
+      </div>
+    );
   }
 
-  const normalizedProducts = foundProducts.map((product) => ({
-  ...product,
-  productName: product.name,
-}));
+  return (
+    <div className="max-w-screen-xl mx-auto p-4 md:p-8 space-y-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <BreadcrumbComponent links={["/shop"]} pageText={searchParams.query} />
+        <p className="capitalize">
+          {foundProducts.length} results found for your search{" "}
+          <span className="text-lg font-medium">{searchParams.query}</span>
+        </p>
+      </div>
 
-return (
-  <div className="max-w-screen-xl mx-auto p-4 md:p-8 space-y-2">
-    <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-      <BreadcrumbComponent links={["/shop"]} pageText={searchParams.query!} />
-      <p className="capitalize">
-        {normalizedProducts.length} results found for your search{" "}
-        <span className="text-lg font-medium">{searchParams.query}</span>
-      </p>
-    </div>
+      {/* Desktop view */}
+      <div className="hidden lg:grid grid-cols-1 gap-6">
+        {foundProducts.map((product) => (
+          <SingleProductListView key={product.id} product={product} />
+        ))}
+      </div>
 
-    <div className="hidden lg:grid grid-cols-1 gap-6">
-      {normalizedProducts.map((product) => (
-        <SingleProductListView key={product.id} product={product} />
-      ))}
+      {/* Mobile view */}
+      <div className="grid lg:hidden grid-cols-1 md:grid-cols-3 gap-6">
+        {foundProducts.map((product) => (
+          <SingleProductCartView key={product.id} product={product} />
+        ))}
+      </div>
     </div>
-
-    <div className="grid lg:hidden grid-cols-1 md:grid-cols-3 gap-6">
-      {normalizedProducts.map((product) => (
-        <SingleProductCartView key={product.id} product={product} />
-      ))}
-    </div>
-  </div>
-);
+  );
 }
-
-export default SearchComponent;

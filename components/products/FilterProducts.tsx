@@ -10,6 +10,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "../ui/button";
 // import { colors } from "@/data/products/productColor";
 // import { dummyCategories } from "@/data/category/categoryData";
+import { API_URL } from "@/config/api";
 
 const FilterProducts = () => {
   const [minValue, setMinValue] = useState(10);
@@ -38,7 +39,7 @@ const FilterProducts = () => {
   useEffect(() => {
   const fetchFilterOptions = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/products/filter-option");
+      const res = await fetch(`${API_URL}/api/products/filter-option`);
       const data = await res.json();
 
       setBrands(data.brands);

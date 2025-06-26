@@ -1,7 +1,9 @@
+import { API_URL } from "@/config/api";
+
 export const CART_API = {
-  FETCH: "http://localhost:8080/api/cart",
-  ADD: "http://localhost:8080/api/cart/add",
-  UPDATE: "http://localhost:8080/api/cart/update",
-  REMOVE: (productId: number) => `http://localhost:8080/api/cart/remove/${productId}`,
-  CLEAR: "http://localhost:8080/api/cart/clear",
+  FETCH: `${API_URL}/api/cart`,
+  ADD: `${API_URL}/api/cart/add`,
+  UPDATE: `${API_URL}/api/cart/update`,
+  REMOVE: (productId: number) => `${API_URL}/api/cart/remove/${productId}`,
+  CLEAR: `${API_URL}/api/cart/clear`,
 };

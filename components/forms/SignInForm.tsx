@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa6";
+import { API_URL } from "@/config/api";
 
 // Define Zod schema for form validation
 const signInSchema = z.object({
@@ -34,7 +35,7 @@ const SignInForm = () => {
   const onSubmit = async (data: SignInFormData) => {
   try {
     console.log("Inside try block")
-    const res = await fetch("http://localhost:8080/auth/signin", {
+    const res = await fetch(`${API_URL}/auth/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

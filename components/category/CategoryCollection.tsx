@@ -4,9 +4,11 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
+import { API_URL } from "@/config/api";
+
 
 const CategoriesCollection = async () => {
-  const res = await fetch("http://localhost:8080/api/products/", {
+  const res = await fetch(`${API_URL}/api/products/`, {
     cache: "no-store", // disables caching, ensures fresh data
   });
   const productsData = await res.json();

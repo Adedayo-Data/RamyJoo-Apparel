@@ -1,8 +1,9 @@
 // lib/api-adapter.ts
 import { Product } from "@/types";
+import { API_URL } from "@/config/api";
 
 export async function getProductsFromBackend() {
-  const res = await fetch("http://localhost:8080/api/products/", {
+  const res = await fetch(`${API_URL}/api/products/`, {
     cache: "no-store",
   });
   const data = await res.json();
@@ -48,7 +49,7 @@ export async function getProductsFromBackend() {
 
 export async function getProductById(id: string): Promise<Product | null> {
   try {
-    const res = await fetch(`http://localhost:8080/api/products/${id}`, {
+    const res = await fetch(`${API_URL}/api/products/${id}`, {
       cache: "no-store",
     });
 
@@ -69,7 +70,7 @@ export async function getProductById(id: string): Promise<Product | null> {
 
 // lib/api.ts
 export async function getFilterOptions() {
-  const res = await fetch("http://localhost:8080/api/products/filter", {
+  const res = await fetch(`${API_URL}/api/products/filter`, {
     cache: "no-store",
   });
   if (!res.ok) {

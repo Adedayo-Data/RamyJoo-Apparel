@@ -6,6 +6,7 @@ import React, { useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
 import { fetchUser } from '@/lib/auth';
 import { User } from '@/types';
+import { API_URL } from '@/config/api';
 
 const MyAccountPage = () => {
 
@@ -55,7 +56,7 @@ const handleProfileImageUpload = async (event: React.ChangeEvent<HTMLInputElemen
   const imageUrl = data.secure_url;
 
   // Then send imageUrl to your backend
-  await fetch("http://localhost:8080/api/user/profile/photo", {
+  await fetch(`${API_URL}/api/user/profile/photo`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

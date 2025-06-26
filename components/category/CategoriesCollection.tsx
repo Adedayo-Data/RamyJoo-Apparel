@@ -2,9 +2,10 @@
 import React from "react";
 
 import CategoriesCollectionClient from "./CategoriesCollectionClient";
+import { API_URL } from "@/config/api";
 
 const CategoriesCollection = async () => {
-  const res = await fetch("http://localhost:8080/api/products/", {
+  const res = await fetch(`${API_URL}/api/products/`, {
     cache: "no-store",
   });
 
