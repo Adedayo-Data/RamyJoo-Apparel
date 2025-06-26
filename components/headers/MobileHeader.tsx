@@ -42,12 +42,12 @@ const MobileHeader = () => {
       icon: <Heart />,
       isActive: pathname.includes("/wishlist"),
     },
-    {
-      link: "/my-orders",
-      label: "My Orders",
-      icon: <ListOrdered />,
-      isActive: pathname.includes("/my-orders"),
-    },
+    // {
+    //   link: "/my-orders",
+    //   label: "My Orders",
+    //   icon: <ListOrdered />,
+    //   isActive: pathname.includes("/my-orders"),
+    // },
     {
       link: "/help",
       label: "Help",

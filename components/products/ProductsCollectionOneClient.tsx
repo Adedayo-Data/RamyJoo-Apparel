@@ -6,13 +6,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SingleProductCartView from "../product/SingleProductCartView";
 import { Product } from "@/types";
 
-// interface Product {
-//   id: number;
-//   name: string;
-//   price: number;
-//   images: string[];
-//   // Add any other fields you need (like rating, createdAt, etc.)
-// }
 
 interface Props {
   productsData: Product[];

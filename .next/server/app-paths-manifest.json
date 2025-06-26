@@ -1,6 +1,26 @@
 {
-  "/(main)/shop/[productId]/page": "app/(main)/shop/[productId]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(main)/(auth)/forgot-password/page": "app/(main)/(auth)/forgot-password/page.js",
   "/(main)/(auth)/sign-in/page": "app/(main)/(auth)/sign-in/page.js",
+  "/(main)/(auth)/sign-up/page": "app/(main)/(auth)/sign-up/page.js",
+  "/(main)/about/page": "app/(main)/about/page.js",
+  "/(main)/blog/[title]/page": "app/(main)/blog/[title]/page.js",
+  "/(main)/blog/page": "app/(main)/blog/page.js",
+  "/(main)/blogpageone/page": "app/(main)/blogpageone/page.js",
+  "/(main)/cart/page": "app/(main)/cart/page.js",
+  "/(main)/blogpagetwo/page": "app/(main)/blogpagetwo/page.js",
+  "/(main)/checkout/page": "app/(main)/checkout/page.js",
+  "/(main)/contact/page": "app/(main)/contact/page.js",
+  "/(main)/help/page": "app/(main)/help/page.js",
+  "/(main)/homepagetwo/page": "app/(main)/homepagetwo/page.js",
+  "/(main)/my-account/edit/page": "app/(main)/my-account/edit/page.js",
+  "/(main)/my-account/page": "app/(main)/my-account/page.js",
+  "/(main)/my-orders/page": "app/(main)/my-orders/page.js",
+  "/(main)/page": "app/(main)/page.js",
+  "/(main)/search/page": "app/(main)/search/page.js",
+  "/(main)/shop/[productId]/page": "app/(main)/shop/[productId]/page.js",
   "/(main)/shop/page": "app/(main)/shop/page.js",
-  "/(main)/page": "app/(main)/page.js"
+  "/(main)/wishlist/page": "app/(main)/wishlist/page.js",
+  "/(main)/shoppagetwo/page": "app/(main)/shoppagetwo/page.js"
 }

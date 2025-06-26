@@ -1,7 +1,7 @@
 export const productsData = [
   {
     id: 1,
-    name: "Apple Watch Series 9 [GPS 45mm] Smartwatch with Midnight Aluminum Case",
+    productName: "Apple Watch Series 9 [GPS 45mm] Smartwatch with Midnight Aluminum Case",
     category: "Watches",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -32,7 +32,7 @@ export const productsData = [
   },
   {
     id: 2,
-    name: "Apple Watch SE (2nd Gen) [GPS 44 mm] Smart Watch w/Starlight Aluminium Case & Starllight Sport Band",
+    productName: "Apple Watch SE (2nd Gen) [GPS 44 mm] Smart Watch w/Starlight Aluminium Case & Starllight Sport Band",
     category: "Watches",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -64,7 +64,7 @@ export const productsData = [
   },
   {
     id: 3,
-    name: "FireBolt Ninja SmartWatch | lorem ipsum doller",
+    productName: "FireBolt Ninja SmartWatch | lorem ipsum doller",
     category: "Watches",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -95,7 +95,7 @@ export const productsData = [
   },
   {
     id:4,
-    name: "Samsung Galaxy 4 Smartwatch | lorem ipsun doller",
+    productName: "Samsung Galaxy 4 Smartwatch | lorem ipsun doller",
     category: "Watches",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -125,7 +125,7 @@ export const productsData = [
   },
   {
     id:5,
-    name: "Asus Vivobook Pro | lorem ipsum",
+    productName: "Asus Vivobook Pro | lorem ipsum",
     category: "Computers",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -157,7 +157,7 @@ export const productsData = [
   },
   {
     id: 6,
-    name: "Dell Gaming Laptop | lorem ipsum dlllres",
+    productName: "Dell Gaming Laptop | lorem ipsum dlllres",
     category: "Computers",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -188,7 +188,7 @@ export const productsData = [
   },
   {
     id: 7,
-    name: "Lenova Powerfull Laptop | lorem ipsum dlllres",
+    productName: "Lenova Powerfull Laptop | lorem ipsum dlllres",
     category: "Computers",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -220,7 +220,7 @@ export const productsData = [
   },
   {
     id: 8,
-    name: "MSI Modern Laptop 14 | lorem ipsum dlllres",
+    productName: "MSI Modern Laptop 14 | lorem ipsum dlllres",
     category: "Computers",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -253,7 +253,7 @@ export const productsData = [
   },
   {
     id: 9,
-    name: "Sony Dynamic Wh High Headphone | lorem ipsum dlllres",
+    productName: "Sony Dynamic Wh High Headphone | lorem ipsum dlllres",
     category: "Headphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -285,7 +285,7 @@ export const productsData = [
   },
   {
     id: 10,
-    name: "Sony Normal Wh High Headphone | lorem ipsum dlllres",
+    productName: "Sony Normal Wh High Headphone | lorem ipsum dlllres",
     category: "Headphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -316,7 +316,7 @@ export const productsData = [
   },
   {
     id: 11,
-    name: "Seiheimer 12 High Headphone | lorem ipsum dlllres",
+    productName: "Seiheimer 12 High Headphone | lorem ipsum dlllres",
     category: "Headphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -347,7 +347,7 @@ export const productsData = [
   },
   {
     id: 12,
-    name: "Prothonus Noise Cancalling Headphone | lorem ipsum dlllres",
+    productName: "Prothonus Noise Cancalling Headphone | lorem ipsum dlllres",
     category: "Headphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -378,7 +378,7 @@ export const productsData = [
   },
   {
     id: 13,
-    name: " Peco M6 Smartphone | lorem ipsum dlllres",
+    productName: " Peco M6 Smartphone | lorem ipsum dlllres",
     category: "Smartphones",
     description:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -410,7 +410,7 @@ export const productsData = [
   },
   {
     id: 14,
-    name: "Realme C 13 Smartphone | lorem ipsum doller",
+    productName: "Realme C 13 Smartphone | lorem ipsum doller",
     category: "Smartphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -442,7 +442,7 @@ export const productsData = [
   },
   {
     id: 15,
-    name: "Lava Agni Smartphone | lorem ipsum doller",
+    productName: "Lava Agni Smartphone | lorem ipsum doller",
     category: "Smartphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
@@ -473,7 +473,7 @@ export const productsData = [
   },
   {
     id: 16,
-    name: "Samsung Galaxy 15 Pro Smartphone | lorem ipsum doller",
+    productName: "Samsung Galaxy 15 Pro Smartphone | lorem ipsum doller",
     category: "Smartphones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!",
