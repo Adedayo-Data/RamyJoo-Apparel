@@ -13,7 +13,6 @@ const HomePageTwo = () => {
   return (
     <div className="overflow-hidden">
       <HeroBannerTwo />
-      <SpecialDeals textCenter={true} />
       <Suspense fallback={<Loader />}>
         <CategorySectionOne />
       </Suspense>
