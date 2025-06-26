@@ -23,25 +23,34 @@ const SearchComponent = ({
     </div>;
   }
 
-  return (
-    <div className="max-w-screen-xl mx-auto p-4 md:p-8 space-y-2">
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+  const normalizedProducts = foundProducts.map((product) => ({
+  ...product,
+  productName: product.name,
+}));
+
+return (
+  <div className="max-w-screen-xl mx-auto p-4 md:p-8 space-y-2">
+    <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
       <BreadcrumbComponent links={["/shop"]} pageText={searchParams.query!} />
-      <p className=" capitalize">{foundProducts.length} results found for your search <span className="text-lg font-medium">
-      {searchParams.query}</span></p>
-      </div>
-      <div className="hidden lg:grid grid-cols-1 gap-6">
-        {foundProducts.map((product) => (
-          <SingleProductListView key={product.id} product={product}/>
-        ))}
-      </div>
-      <div className="grid lg:hidden grid-cols-1 md:grid-cols-3 gap-6">
-        {foundProducts.map((product) => (
-          <SingleProductCartView key={product.id} product={product}/>
-        ))}
-      </div>
+      <p className="capitalize">
+        {normalizedProducts.length} results found for your search{" "}
+        <span className="text-lg font-medium">{searchParams.query}</span>
+      </p>
     </div>
-  );
-};
+
+    <div className="hidden lg:grid grid-cols-1 gap-6">
+      {normalizedProducts.map((product) => (
+        <SingleProductListView key={product.id} product={product} />
+      ))}
+    </div>
+
+    <div className="grid lg:hidden grid-cols-1 md:grid-cols-3 gap-6">
+      {normalizedProducts.map((product) => (
+        <SingleProductCartView key={product.id} product={product} />
+      ))}
+    </div>
+  </div>
+);
+}
 
 export default SearchComponent;
