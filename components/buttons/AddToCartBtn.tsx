@@ -5,7 +5,7 @@ import { ShoppingBag } from "lucide-react";
 
 import useCartStore from "@/store/cartStore";
 import { showToast } from "@/lib/showToast";
-import { CartItem } from "@/types";
+import { Product, CartItem } from "@/types";
 
 
 const AddToCartBtn = ({product}:{product:CartItem}) => {
@@ -14,7 +14,7 @@ const AddToCartBtn = ({product}:{product:CartItem}) => {
 
   const handleAddToCart = () => {
     addToCart(product)
-    showToast('Item Added To The Cart', product.images[0] as string,product.name)
+    showToast('Item Added To The Cart', product.product.images[0] as string,product.product.productName)
 
   }
 

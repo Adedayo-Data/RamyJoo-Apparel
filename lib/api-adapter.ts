@@ -63,5 +63,23 @@ export async function getProductById(id: string): Promise<Product | null> {
     console.error("Error fetching product by ID:", error);
     return null;
   }
+
+  
 }
+
+// lib/api.ts
+export async function getFilterOptions() {
+  const res = await fetch("http://localhost:8080/api/products/filter", {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch filter options");
+  }
+  return res.json() as Promise<{
+    categories: string[];
+    brands: string[];
+    colors: string[];
+  }>;
+}
+
 

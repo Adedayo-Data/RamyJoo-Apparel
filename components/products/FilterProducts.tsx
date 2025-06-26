@@ -1,43 +1,71 @@
+// FilterProductsClient.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
-import { brandsData } from "@/data/brands/brandsdata";
+// import { brandsData, newData } from "@/data/brands/brandsdata";
 import { Label } from "../ui/label";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "../ui/button";
-import { colors } from "@/data/products/productColor";
-import { dummyCategories } from "@/data/category/categoryData";
+// import { colors } from "@/data/products/productColor";
+// import { dummyCategories } from "@/data/category/categoryData";
 
 const FilterProducts = () => {
-  // State variables for filters
   const [minValue, setMinValue] = useState(10);
   const [maxValue, setMaxValue] = useState(5000);
+  // const [selectedCategory, setSelectedCategory] = useState("");
+  // const [selectedColor, setSelectedColor] = useState("");
+  // const [selectedBrand, setSelectedBrand] = useState("");\
+  const [brands, setBrands] = useState<string[]>([]);
+  const [colors, setColorsList] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
 
-  // Access search params
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  // Get filter values from search params on initial render
-  const initialPrice = searchParams.get("max") || "5000";
+  const initialPrice = searchParams.get("max") || "10000000";
   const initialCategory = searchParams.get("category");
   const initialColor = searchParams.get("color");
   const initialBrand = searchParams.get("brand");
 
-  // Update state with initial values
   useEffect(() => {
-    setMaxValue(Number(initialPrice));
-    setSelectedCategory(initialCategory as string);
-    setSelectedColor(initialColor as string);
-    setSelectedBrand(initialBrand as string);
-  }, [initialPrice, initialCategory, initialColor, initialBrand]);
+  const fetchFilterOptions = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/api/products/filter-option");
+      const data = await res.json();
 
-  // Selection handler functions with search param updates
+      setBrands(data.brands);
+      setColorsList(data.colors);
+      setCategories(data.categories);
+
+      // Keep selected values as user-selected filters
+      setMaxValue(Number(initialPrice));
+      setSelectedCategory(initialCategory || "");
+      setSelectedColor(initialColor || "");
+      setSelectedBrand(initialBrand || "");
+    } catch (error) {
+      console.error("Failed to fetch filter options", error);
+    }
+  };
+
+  fetchFilterOptions();
+}, [initialPrice, initialCategory, initialColor, initialBrand]);
+
+
+  // useEffect(() => {
+  //   setMaxValue(Number(initialPrice));
+  //   setSelectedCategory(initialCategory as string);
+  //   setSelectedColor(initialColor as string);
+  //   setSelectedBrand(initialBrand as string);
+  // }, [initialPrice, initialCategory, initialColor, initialBrand]);
+
   const handleCategorySelection = (category: string) => {
     const newSearchParams = new URLSearchParams(searchParams);
     if (category === selectedCategory) {
@@ -49,25 +77,21 @@ const FilterProducts = () => {
     router.push(`${pathname}?${newSearchParams}`);
   };
 
-  // Update min price and max price with correct values
   const handleMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newMinValue = Number(event.target.value);
     setMinValue(newMinValue);
     setMinAndMaxPrice(newMinValue, maxValue);
   };
 
-  // Update max price with correct value
   const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newMaxValue = Number(event.target.value);
     setMaxValue(newMaxValue);
     setMinAndMaxPrice(minValue, newMaxValue);
   };
 
-  // Update search params with correct price range
   const setMinAndMaxPrice = (minPrice: number, maxPrice: number) => {
     const min = Math.min(minPrice, maxPrice);
     const max = Math.max(minPrice, maxPrice);
-
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set("min", `${min}`);
     newSearchParams.set("max", `${max}`);
@@ -104,7 +128,6 @@ const FilterProducts = () => {
     <aside className="w-72 p-2 space-y-4 ">
       <h2 className="text-xl font-bold capitalize my-2">Filter Products</h2>
       <Separator />
-      {/* filter by price */}
       <div>
         <h3 className="text-lg font-medium my-2">By Price</h3>
         <div className="flex items-center justify-between gap-4">
@@ -143,27 +166,25 @@ const FilterProducts = () => {
         </div>
       </div>
 
-      {/* filter by category */}
       <div>
         <h3 className="text-lg font-medium my-2">By Categories</h3>
         <div className="flex items-center justify-start gap-2 flex-wrap">
-          {dummyCategories.map((category) => (
+          {categories.map((category) => (
             <p
-              onClick={() => handleCategorySelection(category.name)}
+              onClick={() => handleCategorySelection(category)}
               className={cn(
                 "px-4 py-1 rounded-full bg-slate-200 dark:bg-slate-700 cursor-pointer",
-                category.name === selectedCategory &&
+                category === selectedCategory &&
                   "bg-blue-400 dark:bg-blue-700"
               )}
-              key={category.id}
+              key={category}
             >
-              {category.name}
+              {category}
             </p>
           ))}
         </div>
       </div>
 
-      {/* filter by Colors */}
       <div>
         <h3 className="text-lg font-medium my-2">By Colors</h3>
         <div className="flex items-center justify-start gap-2 flex-wrap">
@@ -186,11 +207,10 @@ const FilterProducts = () => {
         </div>
       </div>
 
-      {/* filter by Brand name */}
       <div>
         <h3 className="text-lg font-medium my-2">By Brands</h3>
         <div className="flex items-center justify-start gap-2 flex-wrap">
-          {brandsData.map((brand) => (
+          {brands.map((brand) => (
             <p
               onClick={() => handleBrandSelection(brand)}
               className={cn(

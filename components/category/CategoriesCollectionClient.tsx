@@ -10,7 +10,7 @@ import Link from "next/link";
 
 interface Product {
     id: number;
-    name: string;
+    productName: string;
     category: string;
     description: string;
     aboutItem: string[];
@@ -82,7 +82,7 @@ const CategoriesCollectionClient: React.FC<Props> = ({ productsData }) => {
                   >
                     <Image
                       src={item.images[0]}
-                      alt={typeof item.name === "string" ? item.name : "Product"}
+                      alt={typeof item.productName === "string" ? item.productName : "Product"}
                       width={100}
                       height={100}
                       className="object-contain rounded-md"
@@ -96,7 +96,7 @@ const CategoriesCollectionClient: React.FC<Props> = ({ productsData }) => {
                         onClick={(e) => e.stopPropagation()}
                         className="font-semibold hover:text-green-500"
                       >
-                        {item.name.slice(0, 15)}...
+                        {item.productName.slice(0, 15)}...
                       </Link>
                     </div>
                   </div>

@@ -16,6 +16,13 @@ const ProductDetails = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("");
 
+  const cartItem = {
+  id: product.id,
+  quantity,
+  priceAtPurchase: product.price,
+  product,
+};
+
   return (
     <div className="space-y-2 mt-2">
       {/* Category */}
@@ -27,7 +34,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
       </Link>
       {/* Product Name */}
       <h2 className="text-2xl md:text-3xl font-bold capitalize">
-        {product?.name}
+        {product?.productName}
       </h2>
       {/* Rating and Review */}
       <RatingReview
@@ -58,12 +65,12 @@ const ProductDetails = ({ product }: { product: Product }) => {
         <div className="">
           {/* Original Price */}
           <p className="text-muted-foreground line-through text-2xl">
-            ${product?.price}
+            ₦{product?.price}
           </p>
           <div className="flex items-center gap-4">
             {/* Discounted Price */}
             <p className="text-3xl font-bold text-green-500 border-green-500 border py-2 px-6 rounded-lg">
-              ${calculateDiscount(product.price, product.discount)}
+              ₦{calculateDiscount(product.price, product.discount)}
             </p>
             <ProductQuantityChange
               quantity={quantity}
@@ -74,10 +81,24 @@ const ProductDetails = ({ product }: { product: Product }) => {
       </div>
       <div className="flex flex-col md:flex-row items-center gap-4 !my-6">
         {/* Add To Cart Button */}
-        <AddToCartBtn product={{ ...product, quantity, selectedColor }} />
+        <AddToCartBtn
+            product={{
+              id: product.id,
+              quantity,
+              priceAtPurchase: product.price,
+              product,
+            }}
+          />
         {/* Buy Now Button */}
-        <BuyNowBtn product={{ ...product, quantity, selectedColor }} />
-      </div>
+        <BuyNowBtn
+        product={{
+          id: product.id,
+          quantity,
+          priceAtPurchase: product.price,
+          product// optional
+        }}
+      />
+      </div>  
       {/* Separator */}
       <Separator className="!mt-4" />
       {/* Product Tab */}

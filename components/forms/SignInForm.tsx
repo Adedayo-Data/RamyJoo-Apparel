@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa6";
 
 // Define Zod schema for form validation
@@ -17,7 +18,11 @@ const signInSchema = z.object({
 
 type SignInFormData = z.infer<typeof signInSchema>;
 
+
 const SignInForm = () => {
+
+  const router = useRouter(); 
+
   const {
     register,
     handleSubmit,
@@ -26,9 +31,42 @@ const SignInForm = () => {
     resolver: zodResolver(signInSchema),
   });
 
-  const onSubmit = (data: SignInFormData) => {
-    console.log(data); // Handle form submission
-  };
+  const onSubmit = async (data: SignInFormData) => {
+  try {
+    console.log("Inside try block")
+    const res = await fetch("http://localhost:8080/auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    console.log("I'm here");
+
+    const result = await res.json();
+    console.log("Full response:", result); 
+    console.log("Token:", result.jwt); 
+
+    if (!res.ok) {
+      alert(result.message || "Login failed.");
+      return;
+    }
+
+    // Save token to localStorage
+    console.log("Returned token:", result.jwt);
+
+    localStorage.setItem("token", result.jwt);
+
+    // Force redirect
+    window.location.href = "/my-account"; // ✅ This works 100%
+
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("An unexpected error occurred. Try again later.");
+  }
+};
+
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950">
@@ -36,12 +74,13 @@ const SignInForm = () => {
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
           Sign In
         </h2>
-        <div>
+        {/* Add Oauth2 Here */}
+        {/* <div>
           <Button className="w-full p-6 flex items-center justify-center gap-2 text-lg mt-6">
             <FaGoogle size={25} /> Sign In With Google
           </Button>
           <p className="text-lg font-bold my-2 text-center">OR</p>
-        </div>
+        </div> */}
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <Label

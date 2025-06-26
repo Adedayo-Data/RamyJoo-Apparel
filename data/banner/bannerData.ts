@@ -1,27 +1,27 @@
 
 export const bannerData = [
     {
-        title:'Dominate the Competition with the Legion X7',
-        description:'Unleash ultimate gaming power with the Legion X7. Featuring a top-of-the-line processor, powerful graphics card, and a high-refresh-rate display.',
-        images:['/images/banner/One.png'],
-        button:'Shop Gaming Laptops',
+        title:'Elegance is Effortless.',
+        description:'Every RamyJoo piece is crafted to follow your rhythm — graceful, strong, and unforgettable.',
+        images:['/images/banner/b32.png'],
+        button:'Shop Now',
         discountText:'Buy now Get 10% off',
-        link: `shop?category=Computers`
+        link: `shop`
     },
     {
-        title:'Introducing the All-New NovaPhone 15',
-        description:'Experience unparalleled performance with our most advanced phone yet. Blazing-fast processor, stunning camera system, and a revolutionary display.',
-        images:['/images/banner/iphone.png'],
+        title:'This Is Power Dressing',
+        description:'Command the room, even before you say a word — RamyJoo lets your presence speak.',
+        images:['/images/banner/Banner 1_2(2).png'],
         button:'Order Now',
         discountText:'Buy now Get 5% off',
-        link:`shop?category=Smartphones`
+        link:`shop?category=Dresses`
     },
     {
-        title:'High-resolution noise-canceling headphones.',
-        description:'Immerse Yourself in Pure Sound with the SonicPro Max',
-        images:['/images/banner/headphone.png'],
-        button:'Shop Headphones',
-        discountText:'Buy now Get 15% off',
+        title:'Color Me Bold.',
+        description:'Because style should speak louder than words — bold colors, louder confidence.',
+        images:['/images/banner/12.png'],
+        button:'Shop Now',
+        discountText:'Buy now Get 17% off',
         link:'shop?category=Headphones'
     },
 ]

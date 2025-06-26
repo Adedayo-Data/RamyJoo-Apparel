@@ -66,13 +66,13 @@ const SpecialDeals = ({ textCenter }: { textCenter: boolean }) => {
                 <div className="flex items-center justify-between gap-4 lg:gap-2">
                   <div className="flex flex-col lg:flex-row items-center lg:items-start">
                     <span className="text-muted-foreground text-sm line-through mr-2">
-                      ${deal.price}
+                      ₦{deal.price}
                     </span>
                     <span className="text-green-500 text-xl mx-1 font-semibold">
-                      ${deal.price - deal.discount}
+                      ₦{deal.price - deal.discount}
                     </span>
                     <span className="text-sm ml-1 text-rose-500">
-                      (${deal.discount} off)
+                      (₦{deal.discount} off)
                     </span>
                   </div>
                   <Link

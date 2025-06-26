@@ -2,7 +2,7 @@
 
 export type Product = {
   id: number;
-  name: string;
+  productName: string;
   category: string;
   description: string;
   aboutItem: string[];
@@ -34,7 +34,26 @@ export type SearchParams = {
   color: string;
 };
 
-export type CartItem = Product & {
-  selectedColor: string;
+export type CartItem = {
+  id: number;
   quantity: number;
+  priceAtPurchase: number;
+  totalPrice?: number;
+  product: Product;
+};
+
+export type User = {
+  id: number;
+  fullName: string;
+  email: string;
+  gender?: string;
+  phoneNumber?: string;
+  profileImage?: string;
+  address?: {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    zipcode?: string;
+  };
 };

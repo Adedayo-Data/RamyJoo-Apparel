@@ -13,12 +13,13 @@ const SingleProductCartView = ({ product }: { product: Product }) => {
 
   const router = useRouter();
 
+  if (!product) return null; 
   const {
     category,
     discount,
     id,
     images,
-    name,
+    productName,
     price,
     rating,
     reviews,
@@ -43,7 +44,7 @@ const SingleProductCartView = ({ product }: { product: Product }) => {
     >
       <div className={`w-full bg-gray-200 overflow-hidden`}>
         <div className="relative w-full h-[18rem] group-hover:scale-110 transition-all duration-300 rounded-md overflow-hidden">
-          <Image className="object-contain" src={images[0]} alt={name} fill />
+          <Image className="object-contain" src={images[0]} alt={productName} fill />
           {stockItems === 0 ? (
             <p className="py-1 px-4 text-sm font-bold rounded-sm bg-rose-500 text-white absolute top-2 right-2">
               out of stock
@@ -70,14 +71,14 @@ const SingleProductCartView = ({ product }: { product: Product }) => {
           {category}
         </p>
         <h3 className="text-xl font-fold capitalize hover:text-green-500">
-          {name.slice(0, 45)}
-          {name.length > 45 && "..."}
+          {productName.slice(0, 45)}
+          {productName.length > 45 && "..."}
         </h3>
         <RatingReview rating={rating} review={reviews.length} />
         <div className="text-lg font-bold space-x-3 ">
-          <span className="line-through text-muted-foreground">${price}</span>
+          <span className="line-through text-muted-foreground">₦{price}</span>
           <span className="text-xl font-bold text-green-500">
-            ${discountedPrice.toFixed(2)}
+            ₦{discountedPrice.toFixed(2)}
           </span>
         </div>
       </div>

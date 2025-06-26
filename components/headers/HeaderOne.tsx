@@ -14,9 +14,28 @@ import { cn } from "@/lib/utils";
 import { useMobileSearchModal } from "@/store/mobileSearchStore";
 import Loader from "../others/Loader";
 import DropdownMenuComponent from "../others/DropdownMenu";
+import { useEffect, useState } from "react";
+import { User } from "@/types";
+import { fetchUser } from "@/lib/auth";
+import { User as UserIcon } from "lucide-react";
 
 const HeaderOne = () => {
   const pathname = usePathname();
+
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    const getUser = async () => {
+    const data = await fetchUser();
+    setUser(data);
+  };
+
+  getUser();
+}, []);
+
 
   const links = [
     {
@@ -29,11 +48,11 @@ const HeaderOne = () => {
       link: "/shop",
       isActive: pathname.startsWith("/shop"),
     },
-    {
-      label: "Blog",
-      link: "/blog",
-      isActive: pathname.startsWith("/blog"),
-    }
+    // {
+    //   label: "Blog",
+    //   link: "/blog",
+    //   isActive: pathname.startsWith("/blog"),
+    // }
   ];
 
   const { openModal } = useMobileSearchModal();
@@ -72,7 +91,7 @@ const HeaderOne = () => {
             <div className="hidden lg:block">
               <ThemeToggle />
             </div>
-            <AccountPopover />
+            <AccountPopover user={user} />
             <Cart />
             <MobileHeader />
           </div>
