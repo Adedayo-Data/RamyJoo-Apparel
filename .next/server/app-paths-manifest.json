@@ -1,6 +1,6 @@
 {
   "/(main)/shop/[productId]/page": "app/(main)/shop/[productId]/page.js",
-  "/(main)/page": "app/(main)/page.js",
   "/(main)/(auth)/sign-in/page": "app/(main)/(auth)/sign-in/page.js",
-  "/(main)/shop/page": "app/(main)/shop/page.js"
+  "/(main)/shop/page": "app/(main)/shop/page.js",
+  "/(main)/page": "app/(main)/page.js"
 }

@@ -64,7 +64,7 @@ const ProductQuickViewModal = () => {
                   </small>
                   {/* Product Name */}
                   <h2 className="text-2xl md:text-3xl font-bold capitalize">
-                    {product.name}
+                    {product.productName}
                   </h2>
                   {/* Rating and Review */}
                   <RatingReview
@@ -116,11 +116,21 @@ const ProductQuickViewModal = () => {
                   >
                     {/* Add To Cart Button */}
                     <AddToCartBtn
-                      product={{ ...product, quantity, selectedColor }}
+                      product={{
+                        id: product.id,
+                        quantity: 1,
+                        priceAtPurchase: product.price, // or discounted price if available
+                        product, // 👈 nested inside
+                      }}
                     />
                     {/* Buy Now Button */}
                     <BuyNowBtn
-                      product={{ ...product, quantity, selectedColor }}
+                      product={{
+                        id: product.id,
+                        quantity: 1,
+                        priceAtPurchase: product.price,
+                        product,
+                      }}
                     />
                   </div>
                   <ProductTab
