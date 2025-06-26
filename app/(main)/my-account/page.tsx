@@ -36,7 +36,7 @@ const MyAccountPage = () => {
   };
 
   getUser();
-}, []);
+}, [router]);
 
 
 const handleProfileImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
