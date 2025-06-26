@@ -25,14 +25,14 @@ const AboutPageTwo = () => {
         {/* Right Column: Team */}
         <div>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Our Team
+            Meet Me!
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Team Member Card */}
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
               <div className="relative w-full h-[16rem]">
                 <Image
-                  src="/images/people/group-image.avif"
+                  src="/images/people/Ramy1.jpeg"
                   alt="Team Member 1"
                   className="w-full h-64 object-cover"
                   fill
@@ -40,33 +40,33 @@ const AboutPageTwo = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  John Doe
+                  RamyJoo
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Co-Founder & CEO
+                  CEO
                 </p>
               </div>
             </div>
 
             {/* Team Member Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-              <div className="relative w-full h-[16rem]">
+            {/* <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"> */}
+              {/* <div className="relative w-full h-[16rem]">
                 <Image
-                  src="/images/people/group-image.avif"
+                  src="/images/people/Ramy1.jpeg"
                   alt="Team Member 1"
                   className="w-full h-64 object-cover"
                   fill
                 />
-              </div>
-              <div className="p-6">
+              </div> */}
+              {/* <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   Jane Smith
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
                   Co-Founder & CTO
                 </p>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             {/* Add more team member cards as needed */}
           </div>

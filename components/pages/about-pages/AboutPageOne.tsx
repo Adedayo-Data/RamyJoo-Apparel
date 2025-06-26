@@ -10,7 +10,7 @@ const AboutPageOne = () => {
           {/* replace with your actual image */}
           <Image
             className="rounded-xl object-contain"
-            src={"/images/people/group-image.avif"}
+            src={"/images/people/Ramy1.jpeg"}
             alt="about image"
             fill
           />
