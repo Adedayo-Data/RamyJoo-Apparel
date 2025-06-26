@@ -18,9 +18,9 @@ const DropdownMenuComponent = () => {
           Pages <ChevronDown />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="p-6 space-y-2">
-          <DropdownMenuItem>
+          {/* <DropdownMenuItem>
             <Link href={"/homepagetwo"}>Home Page Two</Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem>
             <Link href={"/shoppagetwo"}>Shop Page Two</Link>
           </DropdownMenuItem>
