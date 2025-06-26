@@ -1,0 +1,208 @@
+.
+├── app
+│   ├── (dashboard)
+│   │   ├── dashboard
+│   │   ├── layout.tsx
+│   │   └── loading.tsx
+│   ├── error.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   └── (main)
+│       ├── about
+│       ├── (auth)
+│       ├── blog
+│       ├── blogpageone
+│       ├── blogpagetwo
+│       ├── cart
+│       ├── checkout
+│       ├── contact
+│       ├── help
+│       ├── homepagetwo
+│       ├── layout.tsx
+│       ├── loading.tsx
+│       ├── my-account
+│       ├── my-orders
+│       ├── page.tsx
+│       ├── search
+│       ├── shop
+│       ├── shoppagetwo
+│       └── wishlist
+├── components
+│   ├── account
+│   │   ├── AccountPopover.tsx
+│   │   └── UserAvatar.tsx
+│   ├── banners
+│   │   ├── BannerOne.tsx
+│   │   ├── BannerTwo.tsx
+│   │   └── SpecialDeals.tsx
+│   ├── blog
+│   │   ├── AboutMe.tsx
+│   │   ├── CommentSection.tsx
+│   │   ├── LatestBlogPosts.tsx
+│   │   ├── PopularPosts.tsx
+│   │   └── RecentBlogs.tsx
+│   ├── buttons
+│   │   ├── AddToCartBtn.tsx
+│   │   ├── AddToWishlistBtn.tsx
+│   │   ├── BuyNowBtn.tsx
+│   │   ├── CheckoutBtn.tsx
+│   │   ├── FilterProductsBtn.tsx
+│   │   └── ViewCart.tsx
+│   ├── carts
+│   │   ├── CartItemsDetails.tsx
+│   │   ├── Cart.tsx
+│   │   ├── OrderSummaryForCart.tsx
+│   │   └── OrderSummaryForCheckout.tsx
+│   ├── category
+│   │   ├── CategoriesCollection.tsx
+│   │   └── CategorySectionOne.tsx
+│   ├── dashboard
+│   │   ├── banner
+│   │   ├── blog
+│   │   ├── charts
+│   │   ├── customer
+│   │   ├── forms
+│   │   ├── header
+│   │   ├── notificaton
+│   │   ├── order
+│   │   ├── product
+│   │   ├── sidebar
+│   │   └── statistics
+│   ├── footers
+│   │   └── Footer.tsx
+│   ├── forms
+│   │   ├── CheckoutForm.tsx
+│   │   ├── ContactForm.tsx
+│   │   ├── CouponCodeForm.tsx
+│   │   ├── SignInForm.tsx
+│   │   └── SignUpForm.tsx
+│   ├── headers
+│   │   ├── HeaderOne.tsx
+│   │   ├── MobileHeader.tsx
+│   │   └── SearchBox.tsx
+│   ├── hero
+│   │   ├── HeroBannerOne.tsx
+│   │   ├── HeroBannerThree.tsx
+│   │   └── HeroBannerTwo.tsx
+│   ├── logo
+│   │   └── Logo.tsx
+│   ├── modals
+│   │   ├── MobileSearch.tsx
+│   │   └── ProductQuickView.tsx
+│   ├── newsLetter
+│   │   ├── NewsLetter.tsx
+│   │   └── NewsLetterTwo.tsx
+│   ├── others
+│   │   ├── BenefitSection.tsx
+│   │   ├── Breadcrumb.tsx
+│   │   ├── DropdownMenu.tsx
+│   │   ├── Loader.tsx
+│   │   ├── Pagination.tsx
+│   │   ├── RatingReview.tsx
+│   │   ├── ScrollToTop.tsx
+│   │   └── Testimonials.tsx
+│   ├── pages
+│   │   ├── about-pages
+│   │   ├── blog-pages
+│   │   ├── cart-pages
+│   │   ├── checkout-pages
+│   │   ├── contact-pages
+│   │   ├── dashboard-pages
+│   │   ├── home-pages
+│   │   └── shop-pages
+│   ├── product
+│   │   ├── ProductColorSelection.tsx
+│   │   ├── ProductDescription.tsx
+│   │   ├── ProductDetails.tsx
+│   │   ├── ProductGallery.tsx
+│   │   ├── ProductOptions.tsx
+│   │   ├── ProductQuantityChange.tsx
+│   │   ├── ProductTab.tsx
+│   │   ├── ProductViewChange.tsx
+│   │   ├── SingleProductCartView.tsx
+│   │   └── SingleProductListView.tsx
+│   ├── products
+│   │   ├── FilterProducts.tsx
+│   │   ├── ProductsCollectionOne.tsx
+│   │   ├── ProductsCollectionTwo.tsx
+│   │   ├── RelatedProducts.tsx
+│   │   └── ShopPageContainer.tsx
+│   ├── theme
+│   │   └── ThemeToggle.tsx
+│   └── ui
+│       ├── avatar.tsx
+│       ├── badge.tsx
+│       ├── breadcrumb.tsx
+│       ├── button.tsx
+│       ├── carousel.tsx
+│       ├── checkbox.tsx
+│       ├── dialog.tsx
+│       ├── dropdown-menu.tsx
+│       ├── form.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── pagination.tsx
+│       ├── popover.tsx
+│       ├── progress.tsx
+│       ├── select.tsx
+│       ├── separator.tsx
+│       ├── sheet.tsx
+│       ├── skeleton.tsx
+│       ├── sonner.tsx
+│       ├── table.tsx
+│       ├── tabs.tsx
+│       └── tooltip.tsx
+├── components.json
+├── data
+│   ├── banner
+│   │   └── bannerData.ts
+│   ├── blog
+│   │   └── blogData.ts
+│   ├── brands
+│   │   └── brandsdata.ts
+│   ├── cart
+│   │   └── cartData.ts
+│   ├── category
+│   │   └── categoryData.ts
+│   ├── links
+│   │   └── navLinks.tsx
+│   ├── products
+│   │   ├── productColor.ts
+│   │   └── productsData.ts
+│   └── testimonials
+│       └── testimonialData.ts
+├── lib
+│   ├── calculateDiscount.ts
+│   ├── formatPrice.ts
+│   ├── showToast.tsx
+│   └── utils.ts
+├── next.config.mjs
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── project-structure.txt
+├── providers
+│   ├── ModalProvider.tsx
+│   └── ThemeProvider.tsx
+├── public
+│   ├── images
+│   │   ├── banner
+│   │   ├── categories
+│   │   ├── people
+│   │   ├── products
+│   │   └── shapes
+│   └── logo.svg
+├── README.md
+├── store
+│   ├── cartStore.ts
+│   ├── mobileSearchStore.ts
+│   ├── productQuickViewStore.ts
+│   └── wishlistStore.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── types.ts
+
+80 directories, 126 files
