@@ -16,11 +16,12 @@ const MyAccountPage = () => {
   useEffect(() => {
   const token = localStorage.getItem("token");
   console.log("👀 Checking token:", token);
+  console.log("The token is: ", token)
 
   if (!token) {
     setTimeout(() => {
       router.push("/sign-in");
-    }, 5000); // ⏱ Add delay to see logs
+    }, 2000); // ⏱ Add delay to see logs
   };
 
   const getUser = async () => {

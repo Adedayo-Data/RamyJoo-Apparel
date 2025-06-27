@@ -60,11 +60,11 @@ const SignInForm = () => {
     localStorage.setItem("token", result.jwt);
 
     // Force redirect
-    window.location.href = "/my-account"; // ✅ This works 100%
+    window.location.href = "/"; // ✅ This works 100%
 
   } catch (error) {
     console.error("Login error:", error);
-    alert("An unexpected error occurred. Try again later.");
+    toast.warning("An unexpected error occurred. Try again later.");
   }
 };
 

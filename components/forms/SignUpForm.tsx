@@ -9,6 +9,7 @@ import * as z from "zod";
 import { FaGoogle } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import { API_URL } from "@/config/api";
+import { toast } from "sonner";
 
 // Define Zod schema for form validation
 const signUpSchema = z
@@ -63,16 +64,16 @@ const SignUpForm = () => {
 
     if (!res.ok) {
       const err = await res.json();
-      alert(`Signup failed: ${err.message || "Unknown error"}`);
+      toast.warning("Something went wrong try again later!");
       return;
     }
 
     // Maybe redirect to login?
-    alert("Signup successful! Please sign in.");
+    toast.success("Sign-in successful. Please login");
     window.location.href = "/sign-in";
   } catch (err) {
     console.error(err);
-    alert("Something went wrong. Try again later.");
+    toast.warning("Something went wrong. Try again later.");
   }
 };
 
