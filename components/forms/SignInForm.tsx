@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa6";
 import { API_URL } from "@/config/api";
+import { toast } from "sonner";
 
 // Define Zod schema for form validation
 const signInSchema = z.object({
@@ -49,7 +50,7 @@ const SignInForm = () => {
     console.log("Token:", result.jwt); 
 
     if (!res.ok) {
-      alert(result.message || "Login failed.");
+      toast.warning("E-mail or Password details may be wrong. Try Again");
       return;
     }
 
