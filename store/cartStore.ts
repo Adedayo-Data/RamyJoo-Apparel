@@ -4,6 +4,7 @@ import { create } from "zustand";
 import { CART_API } from "./CartConfig";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { Console } from "console";
 
 interface CartState {
   cartItems: CartItem[];
@@ -57,7 +58,7 @@ const useCartStore = create<CartState>((set, get) => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+             Authorization: `Bearer ${token}`,
           },
           credentials: "include",
         });
@@ -73,28 +74,30 @@ const useCartStore = create<CartState>((set, get) => {
     },
 
     addToCart: async (newItem) => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    toast.warning("Please login to add items to cart");
-    return false; // 🔁 return a signal to redirect
-  }
+    const token = localStorage.getItem("token");
+    console.log("Cart Store token: ", token);
+    if (!token) {
+      toast.warning("Please login to add items to cart");
+      return false; // 🔁 return a signal to redirect
+    }
 
-  try {
-    const res = await fetch(CART_API.ADD, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      credentials: "include",
-      body: JSON.stringify({ productId: newItem.id, quantity: 1 }),
-    });
+    try {
+      const res = await fetch(CART_API.ADD, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: "include",
+        body: JSON.stringify({ productId: newItem.id, quantity: 1 }),
+      });
 
     if (!res.ok) throw new Error("Failed to add item to cart");
 
     const rawData = await res.json();
+    console.log("Raw Data: ", rawData);
 
-    const cartItems: CartItem[] = rawData.map((item: any) => ({
+    const cartItems: CartItem[] = rawData.cartItems.map((item: any) => ({
       id: item.id,
       quantity: item.quantity,
       priceAtPurchase: item.priceAtPurchase,
