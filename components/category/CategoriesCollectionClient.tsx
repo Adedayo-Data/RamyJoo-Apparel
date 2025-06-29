@@ -46,11 +46,14 @@ const CategoriesCollectionClient: React.FC<Props> = ({ productsData }) => {
   };
 
   const getCategoryItems = (cat: string) =>
-    productsData.filter(
-      (item) =>
-        typeof item.category === "string" &&
-        item.category.toLowerCase() === cat.toLowerCase()
-    );
+    Array.isArray(productsData)
+      ? productsData.filter(
+          (item) =>
+            typeof item.category === "string" &&
+            item.category.toLowerCase() === cat.toLowerCase()
+        )
+      : [];
+
 
   const sections = [
     { label: "Dresses", items: getCategoryItems("dresses") },

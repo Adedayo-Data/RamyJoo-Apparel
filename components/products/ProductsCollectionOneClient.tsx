@@ -8,8 +8,12 @@ import { Product } from "@/types";
 
 
 interface Props {
-  productsData: Product[];
+  productsData: {
+    content: Product[];
+    totalPages: number;
+  };
 }
+
 
 const ProductsCollectionOneClient: React.FC<Props> = ({ productsData }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -42,7 +46,7 @@ const ProductsCollectionOneClient: React.FC<Props> = ({ productsData }) => {
 
         <TabsContent value="top-rated" className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-            {productsData.slice(0, 8).map((product) => (
+            {productsData.content.slice(0, 8).map((product) => (
               <SingleProductCartView key={product.id} product={product} />
             ))}
           </div>
@@ -50,7 +54,7 @@ const ProductsCollectionOneClient: React.FC<Props> = ({ productsData }) => {
 
         <TabsContent value="most-popular">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {productsData.slice(8, 16).map((product) => (
+            {productsData.content.slice(8, 16).map((product) => (
               <SingleProductCartView key={product.id} product={product} />
             ))}
           </div>
@@ -58,7 +62,7 @@ const ProductsCollectionOneClient: React.FC<Props> = ({ productsData }) => {
 
         <TabsContent value="new-items">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {productsData.slice(16, 24).map((product) => (
+            {productsData.content.slice(16, 24).map((product) => (
               <SingleProductCartView key={product.id} product={product} />
             ))}
           </div>

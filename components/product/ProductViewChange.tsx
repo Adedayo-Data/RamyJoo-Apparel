@@ -12,6 +12,7 @@ import FilterProductsBtn from "../buttons/FilterProductsBtn";
 interface ProductViewChangeProps {
   itemPerPage: number;
   totalPages: number;
+  totalElements:number;
   currentPage: number;
   listView: boolean;
   setListView: (value: boolean) => void;
@@ -20,6 +21,7 @@ interface ProductViewChangeProps {
 const ProductViewChange = ({
   itemPerPage,
   totalPages,
+  totalElements,
   listView,
   setListView,
   currentPage,
@@ -28,12 +30,10 @@ const ProductViewChange = ({
     <div className="max-w-screen-xl mx-auto py-4  md:-mb-4 flex flex-wrap items-center gap-2 md:gap-4 px-4 lg:px-0 ">
       <div className="mr-auto">
         {/* showing total shown result on the page */}
-        <p className=" text-base md:text-lg  font-medium capitalize text-muted-foreground  select-none">
-          {`showing ${((currentPage - 1) * itemPerPage) + 1}-${
-            itemPerPage * currentPage
-          } of ${totalPages * itemPerPage}`}{" "}
-          results
+        <p className="text-base md:text-lg font-medium capitalize text-muted-foreground select-none">
+          {`Showing ${((currentPage - 1) * itemPerPage) + 1}–${Math.min(currentPage * itemPerPage, totalElements)} of ${totalElements} results`}
         </p>
+
       </div>
       
       {/* this product list and cart view functionality is hidden on mobile screen */}
