@@ -37,21 +37,43 @@ const ShopPageContainer = ({ searchParams, gridColumn }: ShopPageContainerProps)
   setLoading(true);
 
   const fetchData = async () => {
-    const pageNumber = (Number(searchParams.page) || 1) - 1; // zero-based index
-    const data = await getProductsFromBackend(pageNumber);
-    if (data) {
+    const pageNumber = (Number(searchParams.page) || 1) - 1;
+    const query = new URLSearchParams();
+
+    query.set("page", pageNumber.toString());
+    query.set("size", itemsPerPage.toString());
+
+    if (searchParams.category) query.set("category", searchParams.category);
+    if (searchParams.brand) query.set("brand", searchParams.brand);
+    if (searchParams.color) query.set("color", searchParams.color);
+    if (searchParams.min) query.set("min", searchParams.min);
+    if (searchParams.max) query.set("max", searchParams.max);
+
+    const data = await getProductsFromBackend(query.toString());
+
+    if (data && data.content) {
       setProductData({
         content: data.content,
         totalPages: data.totalPages,
         totalElements: data.totalElements,
-        size:data.size,
+        size: data.size,
+      });
+    } else {
+      // Handle empty/failure case gracefully
+      setProductData({
+        content: [],
+        totalPages: 1,
+        totalElements: 0,
+        size: itemsPerPage,
       });
     }
+
     setLoading(false);
   };
 
   fetchData();
 }, [searchParams]);
+
 
 
   if (loading) {

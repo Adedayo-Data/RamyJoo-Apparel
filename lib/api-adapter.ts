@@ -20,11 +20,10 @@ export interface AdminStats {
 }
 
 export const getProductsFromBackend = async (
-  page: number = 0,
-  size: number = 24
+  query: string
 ): Promise<PaginatedProductResponse | null> => {
   try {
-    const res = await fetch(`${API_URL}/api/products/?page=${page}&size=${size}`, {
+    const res = await fetch(`${API_URL}/api/products/?${query}`, {
       cache: "no-store",
     });
 
