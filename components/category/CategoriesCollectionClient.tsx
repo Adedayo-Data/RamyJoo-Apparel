@@ -57,8 +57,8 @@ const CategoriesCollectionClient: React.FC<Props> = ({ productsData }) => {
 
   const sections = [
     { label: "Dresses", items: getCategoryItems("dresses") },
-    { label: "Perfumery", items: getCategoryItems("perfumery") },
-    { label: "Accessories", items: getCategoryItems("accessories") },
+    { label: "Perfumery", items: getCategoryItems("ramyJoo exclusives") },
+    { label: "Accessories", items: getCategoryItems("menswear & more") },
   ];
 
   return (

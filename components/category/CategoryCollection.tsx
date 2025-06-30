@@ -13,7 +13,6 @@ const CategoriesCollection = async () => {
   });
   const productsData = await res.json();
 
-  console.log("Product Data: ", productsData);
   const watches = productsData.filter(
   (item: any) =>
     typeof item.category === "string" &&

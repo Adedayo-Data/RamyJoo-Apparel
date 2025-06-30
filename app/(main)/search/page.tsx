@@ -23,7 +23,6 @@ export default async function SearchPage({
 
 }) {
   const rawProducts = await getProductsFromBackend();
-  console.log("Search raw data: ", rawProducts);
   // ✅ Normalize and assert each product is complete
   const products: Product[] = rawProducts.content.map((product: any) => ({
     id: product.id,
@@ -41,9 +40,6 @@ export default async function SearchPage({
     images: product.images ?? [],
   }));
 
-  console.log("Search query: ", searchParams.query);
-  console.log("Products: ", products);
-
   const query = (searchParams.query || "").toLowerCase();
 
   const foundProducts = products.filter((product) =>
@@ -51,7 +47,6 @@ export default async function SearchPage({
     product.description.toLowerCase().includes(query) ||
     product.category.toLowerCase().includes(query)
   );
-  console.log("found Products: ", foundProducts);
   if (foundProducts.length === 0) {
     return (
       <div className="text-xl font-medium flex flex-col items-center justify-center h-screen w-full">

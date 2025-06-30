@@ -13,7 +13,6 @@ interface ProductIdPageProps {
 }
 
 const ProductIdPage = async ({ params }: ProductIdPageProps) => {
-  console.log(`${API_URL}/api/products/${params.productId}`);
   const res = await fetch(`${API_URL}/api/products/${params.productId}`, {
     cache: "no-store", // you can remove this in production
   });
@@ -23,7 +22,6 @@ const ProductIdPage = async ({ params }: ProductIdPageProps) => {
   }
 
   const product = await res.json();
-  console.log("product output: ", product);
 
   const relatedRes = await fetch(`${API_URL}/api/products/`); // You can filter related in frontend or implement filtering on backend
   const allProducts = await relatedRes.json();

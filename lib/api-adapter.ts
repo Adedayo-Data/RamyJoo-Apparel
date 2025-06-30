@@ -26,7 +26,6 @@ export const getProductsFromBackend = async (
     }
 
     const data = await res.json();
-    console.log("🔥 Raw backend data:", data);
     return data;
   } catch (error) {
     console.error("Error fetching products:", error);

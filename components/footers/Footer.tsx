@@ -116,7 +116,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/privacy"
+                href="/privacy-policy"
                 className=""
               >
                 Privacy Policy

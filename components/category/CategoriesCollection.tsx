@@ -5,7 +5,7 @@ import CategoriesCollectionClient from "./CategoriesCollectionClient";
 import { API_URL } from "@/config/api";
 
 const CategoriesCollection = async () => {
-  const res = await fetch(`${API_URL}/api/products/`, {
+  const res = await fetch(`${API_URL}/api/products/all`, {
     cache: "no-store",
   });
 

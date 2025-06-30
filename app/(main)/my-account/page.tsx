@@ -15,8 +15,6 @@ const MyAccountPage = () => {
 
   useEffect(() => {
   const token = localStorage.getItem("token");
-  console.log("👀 Checking token:", token);
-  console.log("The token is: ", token)
 
   if (!token) {
     setTimeout(() => {
@@ -25,9 +23,7 @@ const MyAccountPage = () => {
   };
 
   const getUser = async () => {
-    console.log("📡 Fetching user...");
     const user = await fetchUser();
-    console.log("✅ User received:", user);
     if (!user) {
       localStorage.removeItem("token");
       router.push("/sign-in");

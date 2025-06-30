@@ -14,10 +14,10 @@ const HomePageOne = () => {
   return (
     <section className="overflow-hidden">
       <HeroBannerOne />
-      <CategoriesCollection />
-      {/* <Suspense fallback={<Loader />}>
+      {/* <CategoriesCollection /> */}
+      <Suspense fallback={<Loader />}>
         <CategoriesCollection />
-      </Suspense> */}
+      </Suspense>
       <ProductsCollectionOne />
       <BenefitsSection textCenter={false} />
       <BannerOne />
