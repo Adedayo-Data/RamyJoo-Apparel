@@ -98,17 +98,17 @@ const Footer = () => {
                 Help Center
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 href="#"
                 className=""
               >
                 Returns & Refunds
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
-                href="#"
+                href="/tos"
                 className=""
               >
                 Terms of Service
@@ -116,7 +116,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/privacy"
                 className=""
               >
                 Privacy Policy

@@ -46,7 +46,7 @@ const AboutPageTwo = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  RamyJoo
+                  Akindele Mary Tosin
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">CEO</p>
               </div>

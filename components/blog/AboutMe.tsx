@@ -10,7 +10,7 @@ const AboutMe = () => {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          <span className="font-bold">RamyJoo</span> is the visionary force behind <span className="font-bold">RamyJoo Apparel</span> — a fashion brand
+          <span className="font-bold">Akindele Mary Tosin</span> is the visionary force behind <span className="font-bold">RamyJoo Apparel</span> — a fashion brand
           known for its fusion of elegance, cultural depth, and bold individuality.
           With a passion for storytelling through style, she has carved out a space
           in the fashion world where tradition meets modern sophistication.
@@ -18,7 +18,7 @@ const AboutMe = () => {
 
         <p className="text-gray-700 dark:text-gray-300 mb-6 italic">
           &quot; I don’t just make clothes — I help people wear their power.&quot; 
-          <span className="not-italic font-semibold"> - RamyJoo</span>
+          <span className="not-italic font-semibold"> - Akindele Mary Tosin</span>
         </p>
 
         <div className="flex items-center">
@@ -31,7 +31,7 @@ const AboutMe = () => {
           />
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              RamyJoo
+              Akindele Mary Tosin
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
               CEO, RamyJoo Apparel
