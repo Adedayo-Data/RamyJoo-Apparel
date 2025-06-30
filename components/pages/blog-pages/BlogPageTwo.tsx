@@ -8,7 +8,7 @@ import React from "react";
 
 const BlogPageTwo = () => {
   // Sample tags data
-  const tags = ["Tech", "Gadgets", "Design", "Fashion", "Travel"];
+  const tags = ["Ankara", "RamyJoo", "Fashion", "Photography", "slay"];
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -55,7 +55,7 @@ const BlogPageTwo = () => {
         {/* About Me or Author Information */}
         <AboutMe />
         {/* Categories */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+        {/* <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
           <div className="p-6">
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
               Categories
@@ -71,7 +71,7 @@ const BlogPageTwo = () => {
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
 
         {/* Tags */}
         <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">

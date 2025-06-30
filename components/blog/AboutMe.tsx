@@ -17,8 +17,8 @@ const AboutMe = () => {
         </p>
 
         <p className="text-gray-700 dark:text-gray-300 mb-6 italic">
-          "I don’t just make clothes — I help people wear their power." 
-          <span className="not-italic font-semibold"> – RamyJoo</span>
+          &quot; I don’t just make clothes — I help people wear their power.&quot; 
+          <span className="not-italic font-semibold"> - RamyJoo</span>
         </p>
 
         <div className="flex items-center">
