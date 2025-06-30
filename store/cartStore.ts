@@ -203,7 +203,7 @@ const useCartStore = create<CartState>((set, get) => {
     },
 
     getTax: () => get().getTotalPrice() * 0.1,
-    getShippingFee: () => 5,
+    getShippingFee: () => 10000,
     getTotalAmount: () => {
       return get().getTotalPrice() + get().getTax() + get().getShippingFee();
     },
