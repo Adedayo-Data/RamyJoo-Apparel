@@ -5,9 +5,10 @@ import SingleProductCartView from "@/components/product/SingleProductCartView";
 import SingleProductListView from "@/components/product/SingleProductListView";
 import { Product } from "@/types";
 import Link from "next/link";
+import { API_URL } from "@/config/api";
 
 const getProductsFromBackend = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
+  const res = await fetch(`${API_URL}/api/products/`, {
     cache: "no-store",
   });
 
@@ -19,13 +20,14 @@ export default async function SearchPage({
   searchParams,
 }: {
   searchParams: { query: string };
+
 }) {
   const rawProducts = await getProductsFromBackend();
-
+  console.log("Search raw data: ", rawProducts);
   // ✅ Normalize and assert each product is complete
-  const products: Product[] = rawProducts.map((product: any) => ({
+  const products: Product[] = rawProducts.content.map((product: any) => ({
     id: product.id,
-    productName: product.name ?? "", // make sure it's always string
+    productName: product.productName ?? "", // make sure it's always string
     category: product.category ?? "",
     description: product.description ?? "",
     aboutItem: product.aboutItem ?? [],
@@ -39,10 +41,17 @@ export default async function SearchPage({
     images: product.images ?? [],
   }));
 
-  const foundProducts = products.filter((product) =>
-    product.productName.toLowerCase().includes(searchParams.query.toLowerCase())
-  );
+  console.log("Search query: ", searchParams.query);
+  console.log("Products: ", products);
 
+  const query = (searchParams.query || "").toLowerCase();
+
+  const foundProducts = products.filter((product) =>
+    product.productName.toLowerCase().includes(query) ||
+    product.description.toLowerCase().includes(query) ||
+    product.category.toLowerCase().includes(query)
+  );
+  console.log("found Products: ", foundProducts);
   if (foundProducts.length === 0) {
     return (
       <div className="text-xl font-medium flex flex-col items-center justify-center h-screen w-full">

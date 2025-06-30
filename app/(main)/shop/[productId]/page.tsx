@@ -30,7 +30,7 @@ const ProductIdPage = async ({ params }: ProductIdPageProps) => {
 
 
 
-  const relatedProducts = allProducts.filter(
+  const relatedProducts = allProducts.content.filter(
     (prod: any) => prod.category === product.category && prod.id !== product.id
   );
 
