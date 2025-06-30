@@ -48,11 +48,11 @@ const HeaderOne = () => {
       link: "/shop",
       isActive: pathname.startsWith("/shop"),
     },
-    // {
-    //   label: "Blog",
-    //   link: "/blog",
-    //   isActive: pathname.startsWith("/blog"),
-    // }
+    {
+      label: "Blog",
+      link: "/blog",
+      isActive: pathname.startsWith("/blog"),
+    }
   ];
 
   const { openModal } = useMobileSearchModal();

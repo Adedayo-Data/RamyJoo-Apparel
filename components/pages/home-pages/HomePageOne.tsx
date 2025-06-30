@@ -22,7 +22,7 @@ const HomePageOne = () => {
       <BenefitsSection textCenter={false} />
       <BannerOne />
       <TestimonialsSection textCenter={false} />
-      {/* <LatestBlogPosts twoColunmHeader={true} /> */}
+      <LatestBlogPosts twoColunmHeader={true} />
       <NewsLetterTwo />
     </section>
   );

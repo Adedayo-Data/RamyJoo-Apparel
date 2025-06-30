@@ -59,7 +59,7 @@ const BlogTitlePage = ({ params }: { params: { title: string } }) => {
               </h2>
               <div className="text-sm md:text-lg flex items-center gap-2 mt-2 text-blue-500">
                 <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarImage src="https://res.cloudinary.com/drzcrx4he/image/upload/v1751036401/Ramy_50_h1czds.jpg" />
                   <AvatarFallback>Pic</AvatarFallback>
                 </Avatar>{" "}
                 {blog?.author}
@@ -77,9 +77,9 @@ const BlogTitlePage = ({ params }: { params: { title: string } }) => {
           </div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <CommentSection />
-      </div>
+      </div> */}
       <div>
         <NewsLetterTwo />
       </div>
