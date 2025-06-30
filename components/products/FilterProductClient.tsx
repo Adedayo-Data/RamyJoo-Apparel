@@ -22,7 +22,7 @@ const FilterProductsClient = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const initialPrice = searchParams.get("max") || "10000000";
+  const initialPrice = searchParams.get("max") || "1000000";
   const initialCategory = searchParams.get("category");
   const initialColor = searchParams.get("color");
   const initialBrand = searchParams.get("brand");
