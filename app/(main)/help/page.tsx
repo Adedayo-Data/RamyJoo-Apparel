@@ -50,7 +50,7 @@ const HelpPage = () => {
                   <span className="font-medium">Instagram:</span> @ramyjooapparel
                 </li>
                 <li>
-                  <span className="font-medium">WhatsApp/Phone:</span> +234 XXX XXX XXXX
+                  <span className="font-medium">WhatsApp/Phone:</span> +234 803 612 5355
                 </li>
                 <li>
                   <span className="font-medium">Email:</span> ramyjooapparel@gmail.com
