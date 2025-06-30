@@ -10,11 +10,14 @@ const AboutMe = () => {
         </h2>
         <div>
           <p className="text-gray-700 dark:text-gray-300 mb-4 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa sapiente excepturi reiciendis exercitationem vitae facilis rerum, quasi sint fugiat odit, ad ducimus eum? Culpa incidunt sit ex facilis deleniti minus.
+            RamyJoo is the visionary force behind RamyJoo Apparel — a fashion brand known for its 
+            fusion of elegance, cultural depth, and bold individuality. With a passion for storytelling 
+            through style, she has carved out a space in the fashion world where tradition meets 
+            modern sophistication.<b>✨ "I don’t just make clothes — I help people wear their power." – RamyJoo</b>
           </p>
           <div className="flex items-center mb-4">
             <Image
-              src= '/images/people/person.jpg'
+              src= '/images/people/Ramy1.jpeg'
               alt="User"
               width={48}
               height={48}
@@ -25,7 +28,7 @@ const AboutMe = () => {
                Shohag Miah
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
-                CEO, Company Inc.
+                CEO, RamyJoo Apparel.
               </p>
             </div>
           </div>
