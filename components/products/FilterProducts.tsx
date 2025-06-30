@@ -31,7 +31,7 @@ const FilterProducts = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const initialPrice = searchParams.get("max") || "10000000";
+  const initialPrice = searchParams.get("max") || "1000000";
   const initialCategory = searchParams.get("category");
   const initialColor = searchParams.get("color");
   const initialBrand = searchParams.get("brand");
@@ -136,7 +136,7 @@ const FilterProducts = () => {
             <Label htmlFor="min">Min :</Label>
             <Input
               id="min"
-              placeholder="$10"
+              placeholder="₦10000"
               value={minValue}
               min={2}
               type="number"
@@ -147,7 +147,7 @@ const FilterProducts = () => {
             <Label htmlFor="max">Max :</Label>
             <Input
               id="max"
-              placeholder="$2000"
+              placeholder="₦500000"
               min={2}
               value={maxValue}
               type="number"
@@ -163,7 +163,7 @@ const FilterProducts = () => {
             max={5000}
             value={maxValue}
           />
-          <p className="text-center text-green-500 text-2xl">${maxValue}</p>
+          <p className="text-center text-green-500 text-2xl">₦{maxValue}</p>
         </div>
       </div>
 

@@ -22,7 +22,7 @@ const FilterProductsClient = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const initialPrice = searchParams.get("max") || "10000000";
+  const initialPrice = searchParams.get("max") || "1000000";
   const initialCategory = searchParams.get("category");
   const initialColor = searchParams.get("color");
   const initialBrand = searchParams.get("brand");
@@ -127,7 +127,7 @@ const FilterProductsClient = () => {
             onChange={handleMaxPriceChange}
             type="range"
             min={5}
-            max={5000}
+            max={500000}
             value={maxValue}
           />
           <p className="text-center text-green-500 text-2xl">₦{maxValue}</p>
