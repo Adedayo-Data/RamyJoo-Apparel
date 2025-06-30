@@ -4,7 +4,7 @@ import ProductsCollectionOneClient from "@/components/products/ProductsCollectio
 
 const ProductsCollectionOne = async () => {
   const products = await getProductsFromBackend();
-  return <ProductsCollectionOneClient productsData={products} />;
+  return <ProductsCollectionOneClient productsData={products ?? { content: [], totalPages: 0}} />;
 };
 
 export default ProductsCollectionOne;
