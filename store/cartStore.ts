@@ -75,7 +75,6 @@ const useCartStore = create<CartState>((set, get) => {
 
     addToCart: async (newItem) => {
     const token = localStorage.getItem("token");
-    console.log("Cart Store token: ", token);
     if (!token) {
       toast.warning("Please login to add items to cart");
       return false; // 🔁 return a signal to redirect
@@ -95,7 +94,6 @@ const useCartStore = create<CartState>((set, get) => {
     if (!res.ok) throw new Error("Failed to add item to cart");
 
     const rawData = await res.json();
-    console.log("Raw Data: ", rawData);
 
     const cartItems: CartItem[] = rawData.cartItems.map((item: any) => ({
       id: item.id,

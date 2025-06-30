@@ -46,7 +46,6 @@ const ProductForm = () => {
   });
 
   const onSubmit = (data: ProductFormData) => {
-    console.log(data);
     // Add logic to handle form submission (e.g., API call to add product)
     setFormData({
       name: "",

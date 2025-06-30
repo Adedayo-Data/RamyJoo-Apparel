@@ -35,7 +35,6 @@ const SignInForm = () => {
 
   const onSubmit = async (data: SignInFormData) => {
   try {
-    console.log("Inside try block")
     const res = await fetch(`${API_URL}/auth/signin`, {
       method: "POST",
       headers: {
@@ -43,11 +42,8 @@ const SignInForm = () => {
       },
       body: JSON.stringify(data),
     });
-    console.log("I'm here");
 
     const result = await res.json();
-    console.log("Full response:", result); 
-    console.log("Token:", result.jwt); 
 
     if (!res.ok) {
       toast.warning("E-mail or Password details may be wrong. Try Again");
@@ -55,8 +51,6 @@ const SignInForm = () => {
     }
 
     // Save token to localStorage
-    console.log("Returned token:", result.jwt);
-
     localStorage.setItem("token", result.jwt);
 
     // Force redirect
