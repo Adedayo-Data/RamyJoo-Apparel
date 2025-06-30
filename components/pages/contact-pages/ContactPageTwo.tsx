@@ -17,15 +17,15 @@ const ContactPageTwo = () => {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Address</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">123 Main Street, City, Country</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">No 56 Alkali Road Shopping Complex Opposite   Baraka Restaurant By Murtala Square Kaduna, Kaduna State</p>
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Phone</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">+123 456 7890</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400"> +234 803 612 5355</p>
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Email</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">info@example.com</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">ramyjooapparel@gmail.com</p>
               </div>
             </div>
           </div>

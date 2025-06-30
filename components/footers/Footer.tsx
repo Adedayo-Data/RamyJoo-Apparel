@@ -15,20 +15,20 @@ const Footer = () => {
           <Logo />
           <p>Your one-stop shop for all things Fashion.</p>
           <div className="flex space-x-4">
-            <Link
+            {/* <Link
               href="www.facebook.com"
               className=""
             >
               <FaFacebook size={30}/>
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               href="www.x.com"
               className=""
             >
               <FaTwitter size={30}/>
-            </Link>
+            </Link> */}
             <Link
-              href="www.instagram.com"
+              href="https://www.instagram.com/ramyjooapparel/"
               className=""
             >
               <FaInstagramSquare size={30}/>
