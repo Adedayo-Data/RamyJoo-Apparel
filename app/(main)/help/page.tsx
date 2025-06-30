@@ -22,7 +22,7 @@ const HelpPage = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Do you make clothes for both men and women?</h3>
-              <p className="text-gray-700 dark:text-gray-300">Yes, we create elegant, custom pieces for both men and women, and even for kids. Whether you want a traditional agbada, senator wear, or a sophisticated female gown, we've got you covered.</p>
+              <p className="text-gray-700 dark:text-gray-300">Yes, we create elegant, custom pieces for both men and women, and even for kids. Whether you want a traditional agbada, senator wear, or a sophisticated female gown, we&apos;ve got you covered.</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">What sizes are available?</h3>
