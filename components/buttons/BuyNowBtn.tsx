@@ -10,10 +10,16 @@ const BuyNowBtn = ({product}:{product:CartItem}) => {
   const {addToCart} = useCartStore()
   const router = useRouter()
 
-  const handleBuyNow = () => {
-    addToCart(product)
-    router.push('/checkout')
-  }
+  const handleBuyNow = async () => {
+    const success = await addToCart(product)
+    if(!success){
+      setTimeout(() => {
+        router.push("/sign-in");
+      }, 500)
+    }else{
+      router.push('/checkout');
+    }
+  };
 
   
   return (
