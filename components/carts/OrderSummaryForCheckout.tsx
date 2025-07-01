@@ -6,6 +6,7 @@ import useCartStore from "@/store/cartStore";
 import { Button } from "../ui/button";
 import Loader from "../others/Loader";
 import { formatPrice } from "@/lib/formatPrice";
+import { jwtDecode } from "jwt-decode";
 
 const OrderSummaryForCheckout = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -20,6 +21,49 @@ const OrderSummaryForCheckout = () => {
   if (!isMounted) {
     return <Loader />;
   }
+
+  const token = localStorage.getItem("token");
+  let email = "customer@example.com";
+
+  if(token){
+    try{
+      const decoded: any = jwtDecode(token);
+      email = decoded.sub;
+    }catch(err){
+      console.error("Token decode error", err);
+    }
+  }
+
+
+  const handlePayment = async () => {
+  try {
+    const amountInKobo = getTotalAmount() * 100; // Convert to Kobo
+    const response = await fetch("https://ramyjoo-apparel-backend.onrender.com/api/paystack/initialize", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        email: email,
+        amount: amountInKobo,
+      }),
+    });
+
+    const data = await response.json();
+    console.log("🚀 API Response:", data); 
+
+    if (data?.data?.authorization_url) {
+      window.location.href = data.data.authorization_url;
+    } else {
+      alert("Failed to initialize payment.");
+      console.error(data);
+    }
+  } catch (error) {
+    console.error("Payment error:", error);
+    alert("Something went wrong.");
+  }
+};
 
   return (
     <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
@@ -61,8 +105,10 @@ const OrderSummaryForCheckout = () => {
             ₦{formatPrice(getTotalAmount())}
           </span>
         </div>
-        <Button className="text-xl mt-6 bg-blue-500 dark:bg-blue-600 text-white py-6 px-12 hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none rounded-full hover:ring-2">
-          Place Order
+        <Button className="text-xl mt-6 bg-blue-500 dark:bg-blue-600 text-white py-6 
+        px-12 hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none rounded-full 
+        hover:ring-2" onClick={handlePayment}>
+          Pay ₦{formatPrice(getTotalAmount())}
         </Button>
       </div>
     </div>
