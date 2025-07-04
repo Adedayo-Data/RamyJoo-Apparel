@@ -35,7 +35,7 @@ export const blogPosts = [
         the region.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `Trends and Changes in Men’s Fashion (2018–2025)`,
       },
       {
@@ -48,7 +48,7 @@ export const blogPosts = [
         and minimalism.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `Women’s Fashion Evolution`,
       },
       {
@@ -57,7 +57,7 @@ export const blogPosts = [
 Modern northern women also incorporate stylish hijabs, turbans, and modest fashion brands into their wardrobes, giving rise to a powerful *modest fashion movement*. Social media platforms like Instagram and TikTok have played a crucial role in spreading these trends across states like Kaduna, Kano, Gombe, and Maiduguri.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `Role of Dressmakers and Designers`,
       },
       {
@@ -66,7 +66,7 @@ Modern northern women also incorporate stylish hijabs, turbans, and modest fashi
 Technology has played a vital role — fashion houses use mobile apps, WhatsApp, and social media to showcase their work, interact with clients, and market their designs. Local fashion events, like Kano Fashion Week and Arewa Fashion Show, have become platforms to showcase indigenous creativity to a global audience.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `Influence of Religion and Modern Modesty`,
       },
       {
@@ -75,7 +75,7 @@ Technology has played a vital role — fashion houses use mobile apps, WhatsApp,
 Designers now create Abayas, Hijabs, and long dresses in luxurious fabrics, bright colors, and flattering cuts — a trend that has gained both local and international attention.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `Challenges in the Fashion Sector`,
       },
       {
@@ -84,7 +84,7 @@ Designers now create Abayas, Hijabs, and long dresses in luxurious fabrics, brig
 Additionally, global inflation and the impact of the COVID-19 pandemic (2020–2022) disrupted fashion events, supply chains, and consumer purchasing power. However, many fashion entrepreneurs have shown resilience by adapting to online platforms and simplifying their production methods.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `The Future of Fashion in Northern Nigeria`,
       },
       {
@@ -93,139 +93,12 @@ Additionally, global inflation and the impact of the COVID-19 pandemic (2020–2
 Investment in fashion education, textile production, and government support for small-scale tailors could further unlock potential in this vibrant industry. Sustainable fashion, recycling, and eco-friendly materials may also shape the next phase of modern dressing in the North.`,
       },
       {
-        type: "subHeading",
+        type: "subheading",
         text: `Conclusion`,
       },
       {
         type: "text",
         text: `From 2018 to 2025, modern dressing and dress making in Northern Nigeria have gone through a cultural renaissance. The fusion of traditional and modern fashion, the rise of modest yet stylish clothing, and the entrepreneurial spirit of young designers have created a new identity for Northern Nigerian fashion. It is an evolving story of pride, faith, creativity, and innovation — a journey that beautifully redefines what it means to be fashionable in the North.`,
-      },
-    ],
-    date: new Date(),
-  },
-  {
-    title: "CONCEPT OF MEN AND FEMALE FASHION OUTFITS IN NIGERIA: A BLEND OF CULTURE AND MODERN TRENDS",
-    author: "MARY TOSIN AKINDELE",
-    category: "Fashion",
-    image: "/images/blogs/wardrobe-essentials.jpg", 
-    excerpt:
-      "Men and women’s fashion in Nigeria is a dynamic blend of old and new, where traditional roots meet modern innovation. It is a reflection of cultural pride and evolving identity. Whether through the regal Agbada, the graceful Iro and Buba, or the trend-setting Ankara gowns and Senator suits, Nigerian fashion continues to shine on both local and global runways.",
-    content: [
-      {
-        type: "text",
-        text: `Labeeb Ochepa (2021), Fashion in Nigeria is a vibrant reflection of the country's rich cultural diversity, creativity, and evolving lifestyle. Nigerian fashion is not only a form of expression but also a celebration of identity, heritage, and innovation. Both men's and women's fashion in Nigeria showcase an exciting fusion of traditional attire and contemporary trends, making the country a rising hub of global fashion.`,
-      },
-
-      {
-        type: "subheading",
-        text: "Traditional Male Fashion in Nigeria",
-      },
-      {
-        type: "image",
-        src: "/images/blogs/classic-blazer.jpg",
-        alt: "Classic Blazer",
-      },
-      {
-        type: "text",
-        text: `Northern Nigeria, predominantly occupied by the Hausa-Fulani, Kanuri, and 
-        other ethnic groups, has a deep-rooted cultural approach to dressing. 
-        Traditionally, men wear “Babban Riga”, “Kaftan”, and “Jalabiya”, while women adorn 
-        themselves with Wrapper (Zani), Abaya*, Hijab, and Headtie (Gele), often made from 
-        richly embroidered fabrics like Atampa, Lace, Adire, and Brocade. 
-        These styles continue to serve as the foundation for modern fashion expressions in 
-        the region.`,
-      },
-      {
-        type: "subHeading",
-        text: `1. Agbada`,
-      },
-      {
-        type: "text",
-        text: ` A symbol of prestige, the Agbada is a wide-sleeved flowing gown worn over a long-sleeve inner shirt and trousers (called "Sokoto"). It is popular among the Yoruba people and has spread across Nigeria, often worn for weddings, religious ceremonies, and official events.`,
-      },
-      {
-        type: "subHeading",
-        text: `2. Kaftan and Senator Wear`,
-      },
-      {
-        type: "text",
-        text: `The Kaftan (popular in Northern Nigeria) and the Senator wear (a modern tailored version of traditional attire) are popular for their clean-cut style. Usually made from polished cotton or high-quality brocade, these outfits project simplicity and sophistication.`,
-      },
-      {
-        type: "subHeading",
-        text: `3. Dashiki and Isiagu`,
-      },
-      {
-        type: "text",
-        text: `The Dashiki is a colorful, loose-fitting shirt commonly worn by various tribes. The Igbo traditional outfit often features the “Isiagu”, a lion-head patterned shirt worn with a red cap to denote chieftaincy or elder status.`,
-      },
-      {
-        type: "subHeading",
-        text: `Modern Male Fashion Trends`,
-      },
-      {
-        type: "text",
-        text: `Modern Nigerian men increasingly blend Western fashion with African touches. Tailored suits with Ankara linings, designer sneakers paired with native wear, and accessories like caps (Fila or Hausa caps) have redefined the male fashion scene. The fashion-forward youth are also embracing streetwear, combining bold prints, luxury labels, and local brands.`,
-      },
-      {
-        type: "subHeading",
-        text: `Traditional Female Fashion in Nigeria`,
-      },
-      {
-        type: "text",
-        text: `Nigerian women’s fashion is diverse and colorful, with each tribe contributing uniquely beautiful styles:`,
-      },
-      {
-        type: "subHeading",
-        text: `1. Iro and Buba`,
-      },
-      {
-        type: "text",
-        text: `Among the Yoruba, the “Iro” (wrapper), “Buba” (blouse), “Gele” (head tie), and “Ipele” (shoulder sash) form a complete traditional look, often in lace or Ankara fabric.`,
-      },
-      {
-        type: "subHeading",
-        text: `2. George and Lace Wrapper`,
-      },
-      {
-        type: "text",
-        text: `Igbo women wear the “George wrapper”, a richly embroidered wrapper fabric paired with a matching blouse, beads, and head tie, especially for weddings and celebrations.`,
-      },
-      {
-        type: "subHeading",
-        text: `3. Hausa/Fulani Attire`,
-      },
-      {
-        type: "text",
-        text: `Northern women often wear the “Zani”, a long, flowing gown or wrapper with blouse, accompanied by beautifully tied scarves (Hijab or Turban) and henna-decorated hands.`,
-      },
-      {
-        type: "subHeading",
-        text: `Modern Female Fashion Trends`,
-      },
-      {
-        type: "text",
-        text: `Modern Nigerian women are style-conscious and trend-savvy. Ankara, once seen as only traditional, is now being used to make gowns, jumpsuits, skirts, and even corporate wear. Lace, chiffon, silk, and velvet are popular fabrics for making occasion dresses, party gowns, and Aso Ebi (coordinated group attire for events). Influencers and designers like Lisa Folawiyo, Tope FnR, and Veekee James continue to redefine elegance through modern Nigerian fashion.`,
-      },
-      {
-        type: "subHeading",
-        text: `Cultural Significance and Global Influence`,
-      },
-      {
-        type: "text",
-        text: `Fashion in Nigeria is not just about aesthetics, it often conveys messages of status, celebration, and solidarity. “Aso Ebi” culture (uniform dressing for events) strengthens social ties, while the use of indigenous fabrics like “Ankara”, “Adire”, “Akwete”, and “Kampala” preserves textile traditions.`,
-      },
-      {
-        type: "text",
-        text: `Nigerian fashion has now gone global, showcased at international fashion weeks and endorsed by celebrities. Local brands are gaining recognition, and social media platforms have amplified the visibility of African fashion, making Nigeria a fashion capital in Africa.`,
-      },
-      {
-        type: "subHeading",
-        text: `Conclusion`,
-      },
-      {
-        type: "text",
-        text: `Men and women’s fashion in Nigeria is a dynamic blend of old and new, where traditional roots meet modern innovation. It is a reflection of cultural pride and evolving identity. Whether through the regal Agbada, the graceful Iro and Buba, or the trend-setting Ankara gowns and Senator suits, Nigerian fashion continues to shine on both local and global runways.`,
       },
     ],
     date: new Date(),
@@ -266,7 +139,134 @@ Investment in fashion education, textile production, and government support for 
     date: new Date(),
   },
   {
-    title: "Fragrance & Fashion: How to Match Your Scent with Your Outfit",
+    title: "CONCEPT OF MEN AND FEMALE FASHION OUTFITS IN NIGERIA A BLEND OF CULTURE AND MODERN TRENDS",
+    author: "MARY TOSIN AKINDELE",
+    category: "Fashion",
+    image: "/images/blogs/wardrobe-essentials.jpg", 
+    excerpt:
+      "Men and women’s fashion in Nigeria is a dynamic blend of old and new, where traditional roots meet modern innovation. It is a reflection of cultural pride and evolving identity. Whether through the regal Agbada, the graceful Iro and Buba, or the trend-setting Ankara gowns and Senator suits, Nigerian fashion continues to shine on both local and global runways.",
+    content: [
+      {
+        type: "text",
+        text: `Labeeb Ochepa (2021), Fashion in Nigeria is a vibrant reflection of the country's rich cultural diversity, creativity, and evolving lifestyle. Nigerian fashion is not only a form of expression but also a celebration of identity, heritage, and innovation. Both men's and women's fashion in Nigeria showcase an exciting fusion of traditional attire and contemporary trends, making the country a rising hub of global fashion.`,
+      },
+
+      {
+        type: "subheading",
+        text: "Traditional Male Fashion in Nigeria",
+      },
+      {
+        type: "image",
+        src: "/images/blogs/classic-blazer.jpg",
+        alt: "Classic Blazer",
+      },
+      {
+        type: "text",
+        text: `Northern Nigeria, predominantly occupied by the Hausa-Fulani, Kanuri, and 
+        other ethnic groups, has a deep-rooted cultural approach to dressing. 
+        Traditionally, men wear “Babban Riga”, “Kaftan”, and “Jalabiya”, while women adorn 
+        themselves with Wrapper (Zani), Abaya*, Hijab, and Headtie (Gele), often made from 
+        richly embroidered fabrics like Atampa, Lace, Adire, and Brocade. 
+        These styles continue to serve as the foundation for modern fashion expressions in 
+        the region.`,
+      },
+      {
+        type: "subheading",
+        text: `1. Agbada`,
+      },
+      {
+        type: "text",
+        text: ` A symbol of prestige, the Agbada is a wide-sleeved flowing gown worn over a long-sleeve inner shirt and trousers (called "Sokoto"). It is popular among the Yoruba people and has spread across Nigeria, often worn for weddings, religious ceremonies, and official events.`,
+      },
+      {
+        type: "subheading",
+        text: `2. Kaftan and Senator Wear`,
+      },
+      {
+        type: "text",
+        text: `The Kaftan (popular in Northern Nigeria) and the Senator wear (a modern tailored version of traditional attire) are popular for their clean-cut style. Usually made from polished cotton or high-quality brocade, these outfits project simplicity and sophistication.`,
+      },
+      {
+        type: "subheading",
+        text: `3. Dashiki and Isiagu`,
+      },
+      {
+        type: "text",
+        text: `The Dashiki is a colorful, loose-fitting shirt commonly worn by various tribes. The Igbo traditional outfit often features the “Isiagu”, a lion-head patterned shirt worn with a red cap to denote chieftaincy or elder status.`,
+      },
+      {
+        type: "subheading",
+        text: `Modern Male Fashion Trends`,
+      },
+      {
+        type: "text",
+        text: `Modern Nigerian men increasingly blend Western fashion with African touches. Tailored suits with Ankara linings, designer sneakers paired with native wear, and accessories like caps (Fila or Hausa caps) have redefined the male fashion scene. The fashion-forward youth are also embracing streetwear, combining bold prints, luxury labels, and local brands.`,
+      },
+      {
+        type: "subheading",
+        text: `Traditional Female Fashion in Nigeria`,
+      },
+      {
+        type: "text",
+        text: `Nigerian women’s fashion is diverse and colorful, with each tribe contributing uniquely beautiful styles:`,
+      },
+      {
+        type: "subheading",
+        text: `1. Iro and Buba`,
+      },
+      {
+        type: "text",
+        text: `Among the Yoruba, the “Iro” (wrapper), “Buba” (blouse), “Gele” (head tie), and “Ipele” (shoulder sash) form a complete traditional look, often in lace or Ankara fabric.`,
+      },
+      {
+        type: "subheading",
+        text: `2. George and Lace Wrapper`,
+      },
+      {
+        type: "text",
+        text: `Igbo women wear the “George wrapper”, a richly embroidered wrapper fabric paired with a matching blouse, beads, and head tie, especially for weddings and celebrations.`,
+      },
+      {
+        type: "subheading",
+        text: `3. Hausa/Fulani Attire`,
+      },
+      {
+        type: "text",
+        text: `Northern women often wear the “Zani”, a long, flowing gown or wrapper with blouse, accompanied by beautifully tied scarves (Hijab or Turban) and henna-decorated hands.`,
+      },
+      {
+        type: "subheading",
+        text: `Modern Female Fashion Trends`,
+      },
+      {
+        type: "text",
+        text: `Modern Nigerian women are style-conscious and trend-savvy. Ankara, once seen as only traditional, is now being used to make gowns, jumpsuits, skirts, and even corporate wear. Lace, chiffon, silk, and velvet are popular fabrics for making occasion dresses, party gowns, and Aso Ebi (coordinated group attire for events). Influencers and designers like Lisa Folawiyo, Tope FnR, and Veekee James continue to redefine elegance through modern Nigerian fashion.`,
+      },
+      {
+        type: "subheading",
+        text: `Cultural Significance and Global Influence`,
+      },
+      {
+        type: "text",
+        text: `Fashion in Nigeria is not just about aesthetics, it often conveys messages of status, celebration, and solidarity. “Aso Ebi” culture (uniform dressing for events) strengthens social ties, while the use of indigenous fabrics like “Ankara”, “Adire”, “Akwete”, and “Kampala” preserves textile traditions.`,
+      },
+      {
+        type: "text",
+        text: `Nigerian fashion has now gone global, showcased at international fashion weeks and endorsed by celebrities. Local brands are gaining recognition, and social media platforms have amplified the visibility of African fashion, making Nigeria a fashion capital in Africa.`,
+      },
+      {
+        type: "subheading",
+        text: `Conclusion`,
+      },
+      {
+        type: "text",
+        text: `Men and women’s fashion in Nigeria is a dynamic blend of old and new, where traditional roots meet modern innovation. It is a reflection of cultural pride and evolving identity. Whether through the regal Agbada, the graceful Iro and Buba, or the trend-setting Ankara gowns and Senator suits, Nigerian fashion continues to shine on both local and global runways.`,
+      },
+    ],
+    date: new Date(),
+  },
+  {
+    title: "Fragrance & Fashion How to Match Your Scent with Your Outfit",
     author: "RamyJoo Beauty Editor",
     category: "Lifestyle",
     image: "/images/blogs/perfume-match.jpg",
