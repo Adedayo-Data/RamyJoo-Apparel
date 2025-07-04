@@ -77,6 +77,11 @@ const MobileHeader = () => {
     },
   ];
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  }
+
   return (
     <div className="lg:hidden">
       <Sheet>
@@ -123,7 +128,9 @@ const MobileHeader = () => {
                   </Link>
                 ))}
                 <Separator className="!my-2" />
-                <button className="flex items-start justify-start gap-2 p-2 bg-transparent hover:opacity-50">
+                <button 
+                onClick={handleLogout}
+                className="flex items-start justify-start gap-2 p-2 bg-transparent hover:opacity-50">
                   <LogOut />
                   Logout
                 </button>
