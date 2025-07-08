@@ -5,8 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { fetchAdminStats } from "@/lib/api-adapter";
 import { useDebugValue, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AdminDashboardPage() {
+
+  const router = useRouter();
 
   const [stats, setStats] = useState({
     totalProducts: 0,
@@ -32,6 +35,15 @@ export default function AdminDashboardPage() {
 //     setChartData(data);
 //   });
 // }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("admin_token");
+    const role = localStorage.getItem("admin_role");
+
+    if (!token || role !== "ROLE_ADMIN") {
+      router.replace("/admin/login");
+    }
+  }, []);
 
   useEffect(() => {
     fetchAdminStats()
