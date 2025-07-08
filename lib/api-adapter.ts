@@ -12,6 +12,13 @@ interface PaginatedProductResponse {
   empty: boolean;
 }
 
+export interface AdminStats {
+  totalProducts: number;
+  totalUsers: number;
+  totalOrders: number;
+  totalSales: number;
+}
+
 export const getProductsFromBackend = async (
   page: number = 0,
   size: number = 24
@@ -70,4 +77,32 @@ export async function getFilterOptions() {
   }>;
 }
 
+
+export async function fetchAdminStats(): Promise<AdminStats> {
+  const token = localStorage.getItem("admin_token");
+
+  const res = await fetch(`${API_URL}/admin/stats`, {
+    headers: {
+      Authorization:`Bearer ${token}`,
+    },
+  });
+
+  if(!res.ok) throw new Error("Failed to fetch stats data");
+
+  return res.json();
+}
+
+export async function fetchProductsPerMonth() {
+  const token = localStorage.getItem("admin_token");
+
+  const res = await fetch(`${API_URL}/admin/stats/products-per-month`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch chart data");
+
+  return res.json(); 
+}
 

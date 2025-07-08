@@ -16,6 +16,21 @@ export type Product = {
   images: string[];
 };
 
+export type ProductPayload = {
+  productName: string;
+  description: string;
+  price: number;
+  brand: string;
+  category: string;
+  subCategory: string;
+  sizeList: string[];
+  colorList: string[];
+  images: string[];
+  available: boolean;
+}
+
+export type ProductWithId = ProductPayload & { id: number};
+
 export type Review = {  
   author: string;
   image: string;
