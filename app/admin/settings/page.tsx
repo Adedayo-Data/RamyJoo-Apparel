@@ -22,7 +22,7 @@ export default function AdminProductsPage() {
     description: '',
     price: 0,
     brand: '',
-    category: '',
+    Category: '',
     subCategory: '',
     sizeList: [],
     colorList: [],
@@ -32,7 +32,7 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     if (!isAuthenticated) router.push('/admin/login');
-  }, []);
+  }, [isAuthenticated, router]);
 
   const openEditModal = (product: ProductWithId) => {
     setProductToEdit(product);
@@ -154,7 +154,7 @@ export default function AdminProductsPage() {
         description: '',
         price: 0,
         brand: '',
-        category: '',
+        Category: '',
         subCategory: '',
         sizeList: [],
         colorList: [],

@@ -44,7 +44,7 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     if (!isAuthenticated) router.push('/admin/login');
-  }, []);
+  }, [isAuthenticated, router]);
 
   const openEditModal = (product: ProductWithId) => {
     setProductToEdit(product);
