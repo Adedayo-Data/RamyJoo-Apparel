@@ -7,6 +7,25 @@ import { toast } from 'sonner';
 import { useAdminAuth } from '@/context/AdminAuthContext';
 import { useRouter } from 'next/navigation';
 
+type ProductFormState = ProductPayload & {
+  imageFile: File | null;
+};
+
+const initialProductForm: ProductFormState = {
+  productName: '',
+  description: '',
+  price: 0,
+  brand: '',
+  Category: '',
+  subCategory: '',
+  sizeList: [],
+  colorList: [],
+  images: [],
+  available: true,
+  imageFile: null,
+};
+
+
 export default function AdminProductsPage() {
   const { isAuthenticated } = useAdminAuth();
   const router = useRouter();
@@ -18,18 +37,10 @@ export default function AdminProductsPage() {
   const [showEditModal, setShowEditModal] = useState(false);
   const [productToEdit, setProductToEdit] = useState<ProductWithId | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
-  const [newProduct, setNewProduct] = useState<ProductPayload>({
-    productName: '',
-    description: '',
-    price: 0,
-    brand: '',
-    category: '',
-    subCategory: '',
-    sizeList: [],
-    colorList: [],
-    images: [],
-    available: true,
-  });
+  const [newProduct, setNewProduct] = useState<ProductFormState>(initialProductForm);
+  const resetNewProduct = () => {
+    setNewProduct(initialProductForm);
+  };
 
   useEffect(() => {
     if (!isAuthenticated) router.push('/admin/login');
@@ -44,9 +55,10 @@ export default function AdminProductsPage() {
     try {
       const token = localStorage.getItem('admin_token');
       if (!productToEdit) return;
-
+      console.log("Attempting to update product with ID:", productToEdit.id);
+      console.log("Payload:", productToEdit);
       const res = await fetch(
-        `https://ramyjoo-apparel-backend.onrender.com/api/admin/products/${productToEdit.id}`,
+        `https://ramyjoo-apparel-backend.onrender.com/api/admin/products/updateProduct/${productToEdit.id}`,
         {
           method: 'PUT',
           headers: {
@@ -131,41 +143,86 @@ export default function AdminProductsPage() {
 
   const handleAddProduct = async () => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = localStorage.getItem("admin_token");
+      const {imageFile, ...payLoad} = newProduct;
 
       const res = await fetch(
-        'https://ramyjoo-apparel-backend.onrender.com/api/admin/products',
+        "https://ramyjoo-apparel-backend.onrender.com/api/admin/products",
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(newProduct),
+          body: JSON.stringify(payLoad),
         }
       );
 
-      if (!res.ok) throw new Error('Failed to add product');
+      if (!res.ok) throw new Error("Failed to add product");
 
       const created = await res.json();
+
+      // If image selected, upload
+      if (newProduct.imageFile) {
+        await uploadImageFileForProduct(created.id, newProduct.imageFile);
+      }
+
       setProducts((prev) => [created, ...prev]);
       setShowAddModal(false);
-      setNewProduct({
-        productName: '',
-        description: '',
-        price: 0,
-        brand: '',
-        category: '',
-        subCategory: '',
-        sizeList: [],
-        colorList: [],
-        images: [],
-        available: true,
-      });
-      toast.success('Product added successfully');
+      resetNewProduct();
+      toast.success("Product added successfully!");
     } catch (err) {
       console.error(err);
-      toast.warning('Something went wrong while adding product.');
+      toast.warning("Something went wrong while adding product.");
+    }
+  };
+
+  const uploadImageFileForProduct = async (productId: number, file: File) => {
+    const token = localStorage.getItem("admin_token");
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch(
+      `https://ramyjoo-apparel-backend.onrender.com/api/admin/products/${productId}/image`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      }
+    );
+
+    if (!res.ok) throw new Error("Image upload failed");
+  };
+
+
+  const handleImageUpload = async (file: File, id: number) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const token = localStorage.getItem('admin_token');
+      const res = await fetch(
+        `https://ramyjoo-apparel-backend.onrender.com/api/admin/products/${id}/image`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
+
+      if (!res.ok) throw new Error('Upload failed');
+
+      const updatedProduct = await res.json();
+      setProductToEdit((prev) => prev ? { ...prev, images: updatedProduct.images } : null);
+      toast.success("Image uploaded successfully 🎉");
+    } catch (err) {
+      console.error(err);
+      toast.warning("Image upload failed 😓");
     }
   };
 
@@ -186,9 +243,15 @@ return (
         </div>
 
         {showAddModal && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-30 flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded shadow-md w-[90%] max-w-lg">
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg w-[95vw] h-[95vh] p-6 overflow-y-auto relative">
               <h2 className="text-xl font-bold mb-4">Add New Product</h2>
+              <button
+                onClick={() => setShowAddModal(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
+              >
+                ❌ Close
+              </button>
 
               <input
                 value={newProduct.productName}
@@ -222,9 +285,9 @@ return (
               />
 
               <input
-                value={newProduct.category}
+                value={newProduct.Category}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, category: e.target.value })
+                  setNewProduct({ ...newProduct, Category: e.target.value })
                 }
                 placeholder="Category"
                 className="w-full border rounded p-2 mb-4"
@@ -235,7 +298,7 @@ return (
                 onChange={(e) =>
                   setNewProduct({ ...newProduct, subCategory: e.target.value })
                 }
-                placeholder="Subcategory"
+                placeholder="SubCategory"
                 className="w-full border rounded p-2 mb-4"
               />
 
@@ -257,25 +320,59 @@ return (
                 className="w-full border rounded p-2 mb-4"
               />
 
-              <input
+              {/* <input
                 value={newProduct.images.join(",")}
                 onChange={(e) =>
                   setNewProduct({ ...newProduct, images: e.target.value.split(",") })
                 }
                 placeholder="Image URLs (comma-separated)"
                 className="w-full border rounded p-2 mb-4"
-              />
+              /> */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Upload Product Image
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) setNewProduct({ ...newProduct, imageFile: file });
+                  }}
+                  className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-blue-50 file:text-blue-700
+                            hover:file:bg-blue-100"
+                />
+
+                {/* Preview Box */}
+                <div className="mt-4">
+                  <div className="w-40 h-40 border rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+                    {newProduct.imageFile ? (
+                      <img
+                        src={URL.createObjectURL(newProduct.imageFile)}
+                        alt="Preview"
+                        className="object-cover w-full h-full"
+                      />
+                    ) : (
+                      <span className="text-sm text-gray-500">No Image</span>
+                    )}
+                  </div>
+                </div>
+              </div>
 
               <label className="flex items-center space-x-2 mb-4">
-                <input
-                  type="checkbox"
-                  checked={newProduct.available}
-                  onChange={(e) =>
-                    setNewProduct({ ...newProduct, available: e.target.checked })
-                  }
-                />
-                <span>Available</span>
-              </label>
+              <input
+                type="checkbox"
+                checked={newProduct.available}
+                onChange={(e) =>
+                  setNewProduct((prev) => ({ ...prev, available: e.target.checked }))
+                }
+              />
+              <span>Available</span>
+            </label>
+
 
               <div className="flex justify-end gap-2">
                 <button
@@ -349,96 +446,156 @@ return (
         </div>
 
         {showEditModal && productToEdit && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-30 flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded shadow-md w-[90%] max-w-lg">
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg w-[95vw] h-[95vh] p-6 overflow-y-auto relative">
               <h2 className="text-xl font-bold mb-4">Edit Product</h2>
+              <button
+                onClick={() => setShowAddModal(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
+              >
+                ❌ Close
+              </button>
 
               <input
-                value={newProduct.productName}
-                onChange={(e) => setNewProduct({ ...newProduct, productName: e.target.value })}
+                value={productToEdit?.productName || ""}
+                onChange={(e) =>
+                  setProductToEdit((prev) =>
+                    prev ? { ...prev, productName: e.target.value } : null
+                  )
+                }
                 placeholder="Product Name"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.description}
+                value={productToEdit?.description || ""}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, description: e.target.value })
+                  setProductToEdit((prev) =>
+                    prev ? { ...prev, description: e.target.value } : null
+                  )
                 }
                 placeholder="Description"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.price}
-                onChange={(e) => setNewProduct({ ...newProduct, price: parseFloat(e.target.value) })}
+                value={productToEdit?.price || ""}
+                onChange={(e) => setProductToEdit((prev) =>
+                    prev ? { ...prev, price: parseFloat(e.target.value) } : null
+                  )
+                }
                 placeholder="Price"
                 type="number"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.brand}
-                onChange={(e) => setNewProduct({ ...newProduct, brand: e.target.value })}
+                value={productToEdit?.brand || ""} 
+                onChange={(e) => 
+                    setProductToEdit((prev) =>
+                    prev ? { ...prev, brand: e.target.value } : null
+                  )
+                }
                 placeholder="Brand"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.category}
+                value={productToEdit?.Category || ""}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, category: e.target.value })
+                    setProductToEdit((prev) =>
+                    prev ? { ...prev, Category: e.target.value } : null
+                  )
                 }
                 placeholder="Category"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.subCategory}
+                value={productToEdit?.subCategory || ""}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, subCategory: e.target.value })
+                    setProductToEdit((prev) =>
+                    prev ? { ...prev, subCategory: e.target.value } : null
+                  )
                 }
-                placeholder="Subcategory"
+                placeholder="SubCategory"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.sizeList.join(",")}
+                value={productToEdit?.sizeList?.join(",") || ""}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, sizeList: e.target.value.split(",") })
+                    setProductToEdit((prev) =>
+                    prev ? { ...prev, sizeList: e.target.value.split(",") } : null
+                  )
                 }
                 placeholder="Sizes (comma-separated)"
                 className="w-full border rounded p-2 mb-4"
               />
 
               <input
-                value={newProduct.colorList.join(",")}
+                value={productToEdit?.colorList?.join(",") || ""}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, colorList: e.target.value.split(",") })
+                    setProductToEdit((prev) =>
+                    prev ? { ...prev, colorList: e.target.value.split(",") } : null
+                  )
                 }
                 placeholder="Colors (comma-separated)"
                 className="w-full border rounded p-2 mb-4"
               />
 
-              <input
-                value={newProduct.images.join(",")}
+              {/* <input
+                value={productToEdit?.images?.join(",") || ""}
                 onChange={(e) =>
-                  setNewProduct({ ...newProduct, images: e.target.value.split(",") })
+                    setProductToEdit((prev) =>
+                    prev ? { ...prev, images: e.target.value.split(",") } : null
+                  )
                 }
                 placeholder="Image URLs (comma-separated)"
+                className="w-full border rounded p-2 mb-4"
+              /> */}
+              {/* Existing Images Preview */}
+                <div className="flex flex-wrap gap-3 mb-4">
+                  {productToEdit?.images?.map((img, i) => (
+                    <div
+                      key={i}
+                      className="w-40 h-40 border rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center"
+                    >
+                      <img
+                        src={img}
+                        alt={`Uploaded image ${i + 1}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+
+              {/* Upload new image */}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file && productToEdit?.id) {
+                    handleImageUpload(file, productToEdit.id); // This sends to backend and updates state
+                  }
+                }}
                 className="w-full border rounded p-2 mb-4"
               />
 
               <label className="flex items-center space-x-2 mb-4">
-                <input
-                  type="checkbox"
-                  checked={newProduct.available}
-                  onChange={(e) =>
-                    setNewProduct({ ...newProduct, available: e.target.checked })
-                  }
-                />
-                <span>Available</span>
-              </label>
+              <input
+                type="checkbox"
+                checked={productToEdit?.available || false}
+                onChange={(e) =>
+                  setProductToEdit((prev) =>
+                    prev ? { ...prev, available: e.target.checked } : null
+                  )
+                }
+              />
+              <span>Available</span>
+            </label>
 
 
               <div className="flex justify-end gap-2">

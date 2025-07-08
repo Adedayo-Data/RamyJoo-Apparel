@@ -16,38 +16,29 @@ const BlogTitlePage = ({ params }: { params: { title: string } }) => {
   const blog = blogPosts.find((item) => item.title === title);
 
   const renderContent = () => {
-  return blog?.content.map((item, index) => {
-    if (item.type === "text") {
-      return (
-        <p key={index} className="text-xl leading-9 text-gray-800 mb-6">
-          {item.text}
-        </p>
-      );
-    } else if (item.type === "image") {
-      return (
-        <div key={index} className="relative w-full h-[30rem] mb-8">
-          <Image
-            className="rounded-md object-contain"
-            src={item.src || ""}
-            alt={item.alt || "image"}
-            layout="fill"
-          />
-        </div>
-      );
-    } else if (item.type === "subheading") {
-      return (
-        <h2
-          key={index}
-          className="text-2xl font-semibold text-indigo-700 mt-10 mb-4 border-l-4 border-indigo-400 pl-3"
-        >
-          {item.text}
-        </h2>
-      );
-    }
-    return null;
-  });
-};
-
+    return blog?.content.map((item, index) => {
+      if (item.type === "text") {
+        // Render text content as separate paragraphs
+        return (
+          <p key={index} className="text-xl leading-9">
+            {item.text}
+          </p>
+        );
+      } else if (item.type === "image") {
+        // Render images with flexible positioning
+        return (
+          <div key={index} className="relative w-full h-[30rem] mb-8">
+            <Image
+              className="rounded-md object-contain"
+              src={item.src || ''}
+              alt={item.alt || 'image'}
+              layout="fill"
+            />
+          </div>
+        );
+      }
+    });
+  };
 
   return (
     <section>

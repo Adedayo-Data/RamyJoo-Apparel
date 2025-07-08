@@ -1,23 +1,15 @@
 export const blogPosts = [
   {
-    title: "MODERN DRESSING AND DRESS MAKING IN NORTHERN NIGERIA A STUDY PERIOD OF (2018 -2025)",
-    author: "MARY TOSIN AKINDELE",
+    title: "Top 5 Timeless Fashion Pieces Every Woman Should Own",
+    author: "RamyJoo Style Team",
     category: "Fashion",
     image: "/images/blogs/wardrobe-essentials.jpg", 
     excerpt:
-      "From 2018 to 2025, modern dressing and dress making in Northern Nigeria have gone through a cultural renaissance. The fusion of traditional and modern fashion, the rise of modest yet stylish clothing, and the entrepreneurial spirit of young designers have created a new identity for Northern Nigerian fashion. It is an evolving story of pride, faith, creativity, and innovation — a journey that beautifully redefines what it means to be fashionable in the North.",
+      "Great style is built on timeless essentials. In this post, we highlight the must-have pieces every woman needs to elevate her wardrobe and stay effortlessly elegant, no matter the occasion.",
     content: [
       {
         type: "text",
-        text: `From 2018 to 2025, Northern Nigeria has experienced a fascinating transformation in the world of 
-        fashion and clothing. Modern dressing and dress making have evolved significantly, blending cultural heritage with contemporary style. 
-        This period has seen local designers rise to prominence, youth embrace bolder styles, and global influences shape traditional wear. 
-        The result is a vibrant fashion scene that remains rooted in identity while pushing the boundaries of creativity.`,
-      },
-
-      {
-        type: "subheading",
-        text: "Traditional Foundations and Cultural Influence",
+        text: `Whether you're dressing for a casual hangout or a formal event, some fashion pieces never go out of style. Here are 5 wardrobe essentials every woman should own:`,
       },
       {
         type: "image",
