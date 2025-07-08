@@ -21,7 +21,7 @@ export type ProductPayload = {
   description: string;
   price: number;
   brand: string;
-  category: string;
+  Category: string;
   subCategory: string;
   sizeList: string[];
   colorList: string[];
