@@ -8,6 +8,7 @@ import ProductQuantityChange from "./ProductQuantityChange";
 import RatingReview from "../others/RatingReview";
 import ProductDescription from "./ProductDescription";
 import ProductColorSelection from "./ProductColorSelection";
+import ProductSizeSelection from "./ProductSizeSelection";
 import { Product } from "@/types";
 import Link from "next/link";
 import { calculateDiscount } from "@/lib/calculateDiscount";
@@ -15,6 +16,7 @@ import { calculateDiscount } from "@/lib/calculateDiscount";
 const ProductDetails = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
 
   const cartItem = {
   id: product.id,
@@ -22,6 +24,8 @@ const ProductDetails = ({ product }: { product: Product }) => {
   priceAtPurchase: product.price,
   product,
 };
+
+console.log("Product Details:", product);
 
   return (
     <div className="space-y-2 mt-2">
@@ -59,6 +63,11 @@ const ProductDetails = ({ product }: { product: Product }) => {
         color={selectedColor}
         setColor={setSelectedColor}
         allColors={product.color!}
+      />
+
+      {/* product size */}
+      <ProductSizeSelection
+        sizes={selectedSize ? [selectedSize] : product.size!}
       />
 
       <div className="flex items-center gap-6">

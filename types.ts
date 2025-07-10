@@ -12,6 +12,7 @@ export type Product = {
   reviews: Review[];
   brand?: string;
   color?: string[];
+  size?: string[];
   stockItems: number;
   images: string[];
 };
