@@ -46,7 +46,8 @@ const useCartStore = create<CartState>((set, get) => {
   };
 
   return {
-    cartItems: loadFromLocalStorage(),
+    // cartItems: loadFromLocalStorage(),
+    cartItems: [], 
     couponCode: null,
 
     fetchCartFromServer: async () => {

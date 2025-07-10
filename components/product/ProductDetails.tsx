@@ -12,6 +12,7 @@ import ProductSizeSelection from "./ProductSizeSelection";
 import { Product } from "@/types";
 import Link from "next/link";
 import { calculateDiscount } from "@/lib/calculateDiscount";
+import { color } from "framer-motion";
 
 const ProductDetails = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);
@@ -23,6 +24,8 @@ const ProductDetails = ({ product }: { product: Product }) => {
   quantity,
   priceAtPurchase: product.price,
   product,
+  color: selectedColor,
+  size: selectedSize
 };
 
 console.log("Product Details:", product);
@@ -67,8 +70,11 @@ console.log("Product Details:", product);
 
       {/* product size */}
       <ProductSizeSelection
-        sizes={selectedSize ? [selectedSize] : product.size!}
+        size={selectedSize}
+        setSize={setSelectedSize}
+        allSizes={product.size!}
       />
+
 
       <div className="flex items-center gap-6">
         <div className="">
