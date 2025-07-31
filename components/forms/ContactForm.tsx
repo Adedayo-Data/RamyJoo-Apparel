@@ -12,6 +12,7 @@ import { API_URL } from "@/config/api";
 const schema = z.object({
   name: z.string().min(3, "Name is required"),
   email: z.string().email("Invalid email").min(10, "Email is required"),
+  subject: z.string().min(3, "Subject is required"),
   message: z.string().min(5, "Message is required"),
 });
 
@@ -81,6 +82,20 @@ const ContactForm: React.FC = () => {
               />
               {errors.email && (
                 <span className="text-red-500">{errors.email.message}</span>
+              )}
+            </div>
+
+            {/* Subject */}
+            <div>
+              <Label htmlFor="name">Subject</Label>
+              <Input
+                type="text"
+                id="subject"
+                autoComplete="subject"
+                {...register("subject")}
+              />
+              {errors.subject && (
+                <span className="text-red-500">{errors.subject.message}</span>
               )}
             </div>
 
